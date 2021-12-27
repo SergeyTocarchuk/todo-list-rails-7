@@ -1,0 +1,15 @@
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+
+  <div class="item-content">
+    <h1>Todo List</h1>
+    <h4>Total: <%= Item.count %></h4>
+
+    <div id="items" class="item-content">
+      <% @items.each do |item| %>
+        <%= link_to item.content, item %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
