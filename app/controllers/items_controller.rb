@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[ show edit update destroy ]
+  before_action :set_item, only: %i[ show edit update destroy complete incomplete ]
 
   # GET /items or /items.json
   def index
@@ -57,6 +57,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def complete
+    @item.is_completed = true
+    @item.save
+    redirect_to items_path
+  end
+
+  def incomplete
+    @item.is_completed = false
+    @item.save
+    redirect_to items_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
@@ -65,6 +77,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:content)
+      params.require(:item).permit(:content, :is_completed)
     end
 end

@@ -1,15 +1,25 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
 
-  <div class="item-content">
+  <div class="items-index">
     <h1>Todo List</h1>
     <h4>Total: <%= Item.count %></h4>
-
-    <div id="items" class="item-content">
-      <% @items.each do |item| %>
-        <%= link_to item.content, item %>
-      <% end %>
-    </div>
+    
+    <% @items.each do |item| %>
+      <div class="items-list">
+        <div class="item-content">
+          <%= link_to item.content, edit_item_path(item) %>
+          <div class="btns-item">
+            <%= link_to "Done", edit_item_path(item),
+                                class: "button" %>
+            <%= button_to "Undo", item, 
+                                  method: :delete,
+                                  class: "button" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+      
   </div>
 
 </div>

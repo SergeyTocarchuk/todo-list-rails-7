@@ -85,10 +85,6 @@ nav {
 
 /* Show Item section */
 
-.item-content {
-  margin: 0 auto;
-}
-
 .btns-item {
   display: flex;
   flex-direction: row;
@@ -125,8 +121,25 @@ nav {
 
 /* Index Items section */
 
-.item-content > h1, h4 {
-  margin: 20px;
+.items-index {
+  display: flex;
+  flex-direction: column;
+}
+
+.items-index > h1, h4 {
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .item-content > a {
