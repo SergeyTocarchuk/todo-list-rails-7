@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[ show edit update destroy complete incomplete ]
+  before_action :set_item, only: %i[ show edit update destroy complete ]
 
   # GET /items or /items.json
   def index
@@ -63,7 +63,7 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
-  def incomplete
+  def uncomplete
     @item.is_completed = false
     @item.save
     redirect_to items_path

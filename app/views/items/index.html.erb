@@ -10,11 +10,15 @@
         <div class="item-content">
           <%= link_to item.content, edit_item_path(item) %>
           <div class="btns-item">
-            <%= link_to "Done", edit_item_path(item),
-                                class: "button" %>
-            <%= button_to "Undo", item, 
-                                  method: :delete,
+            <% if item.completed? %>
+              <%= link_to "Done", complete_item_path(item),
+                                  method: :patch,
                                   class: "button" %>
+            <% else %>
+              <%= link_to "Undo", uncomplete_item_path(item),
+                                  method: :patch,
+                                  class: "button" %>
+            <% end %>
           </div>
         </div>
       </div>
