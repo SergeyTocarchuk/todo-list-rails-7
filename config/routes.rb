@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  resources :items do
-    member do
-      get 'complete', 'incomplete'
-    end
-  end
+  devise_for :users
 
+  root 'pages#about'
+
+  resources :users
+
+    resources :items do
+      member do
+        get 'complete'
+      end
+    end
+    
 end
