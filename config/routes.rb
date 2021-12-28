@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   resources :items do
     member do
-      get 'complete'
-      get 'uncomplete'
+      get 'complete', 'incomplete'
     end
   end
 

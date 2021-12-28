@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to item_url(@item), notice: "Item was successfully created." }
+        format.html { redirect_to items_path, notice: "Item was successfully created." }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -63,8 +63,8 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
-  def uncomplete
-    @item.is_completed = false
+  def incomplete
+    @item.is_completed = nil
     @item.save
     redirect_to items_path
   end

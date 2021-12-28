@@ -2,28 +2,29 @@
   <p style="color: green"><%= notice %></p>
 
   <div class="items-index">
-    <h1>Todo List</h1>
-    <h4>Total: <%= Item.count %></h4>
-    
-    <% @items.each do |item| %>
+    <h4>To do <%= @items.incompleted.count %> from <%= @items.count %></h4>
+    <% @items.incompleted.each do |item| %>
       <div class="items-list">
-        <div class="item-content">
+        <div class="incomplete-item">
           <%= link_to item.content, edit_item_path(item) %>
           <div class="btns-item">
-            <% if item.completed? %>
-              <%= link_to "Done", complete_item_path(item),
-                                  method: :patch,
-                                  class: "button" %>
-            <% else %>
-              <%= link_to "Undo", uncomplete_item_path(item),
-                                  method: :patch,
-                                  class: "button" %>
-            <% end %>
+            <%= link_to "Done", complete_item_path(item),
+                                method: :patch,
+                                class: "button" %>
           </div>
         </div>
       </div>
-    <% end %>
-      
+    <% end %>  
   </div>
 
+  <div class="items-index">
+    <h4>Completed <%= @items.completed.count %> from <%= @items.count %></h4>
+    <% @items.completed.each do |item| %>
+      <div class="items-list">
+        <div class="complete-item">
+          <%= link_to item.content, edit_item_path(item) %>
+        </div>
+      </div>
+    <% end %>  
+  </div>
 </div>

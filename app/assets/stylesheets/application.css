@@ -142,7 +142,26 @@ nav {
   justify-content: center;
 }
 
-.item-content > a {
+.complete-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.complete-item > a {
+  text-decoration: line-through;
+  font-size: 15px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.incomplete-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.incomplete-item > a {
   text-decoration: none;
   font-size: 15px;
   padding: 8px;
