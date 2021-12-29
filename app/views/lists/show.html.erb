@@ -1,0 +1,15 @@
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+
+  <div class="item-content">
+    <%= render @item %>
+  </div>
+
+  <div class="btns-item">
+    <%= link_to "Edit", edit_item_path(@item),
+                        class: "button" %>
+    <%= button_to "Delete", @item, 
+                            method: :delete,
+                            class: "button btn-delete" %>
+  </div>
+</div>

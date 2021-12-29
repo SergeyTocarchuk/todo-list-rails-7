@@ -1,0 +1,16 @@
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+
+  <div class="items-index">
+    <% @lists.each do |list| %>
+      <div class="items-list">
+        <div class="incomplete-item">
+          <p><%= list.id %></p>
+          <%= link_to list.name %>
+          <p><%= list.created_at %></p>
+        </div>
+      </div>
+    <% end %>  
+  </div>
+
+</div>

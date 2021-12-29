@@ -3,12 +3,15 @@ Rails.application.routes.draw do
 
   root 'pages#about'
 
-  resources :users
+  resources :users do
+    resources :lists
+  end
 
-    resources :items do
-      member do
-        get 'complete'
-        get 'incomplete'
-      end
+  resources :items do
+    member do
+      get 'complete'
+      get 'incomplete'
     end
+  end
+  
 end
