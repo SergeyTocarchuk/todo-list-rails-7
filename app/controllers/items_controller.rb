@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[ show edit update destroy complete ]
+  before_action :set_item, only: %i[ show edit update destroy complete incomplete]
+  before_action :authenticate_user!
 
   # GET /items or /items.json
   def index
-    @items = Item.all
+    @pagy, @items = pagy(Item.all, items: 10)
   end
 
   # GET /items/1 or /items/1.json

@@ -21,7 +21,7 @@
 
 /* navbar */
 
-nav {
+.nav {
   display: flex;
   height: 60px;
   background-color: darkseagreen;
@@ -166,4 +166,12 @@ nav {
   font-size: 15px;
   padding: 8px;
   cursor: pointer;
+}
+
+/* pagination */
+
+.pagy {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

@@ -1,15 +1,16 @@
- • Create / update / delete items
-  User
-  Items
- • Make item as completed (it should be visually distinctive)
- • Style it using pure css
- • Show stats: total number of items, # of completed, # of not completed
- • Filter item:  completed / not completed,  text
- • Add pagination 
- • Allow uploading an image for an item. (Item should have default image) 
- • Add users
- • Add sign in / sign up page.  Users must login /signup to use app. 
- • Home page should display current users todo list. 
- • Deploy to Heroku. 
- • Connect domain name
- • If user not logged in homepage show landing page about this app
+• Create / update / delete items
+• Make item as completed (it should be visually distinctive)
+• Style it using pure css
+• Show stats: total number of items, # of completed, # of not completed
+• Home page should display current users todo list. 
+• If user not logged in homepage show landing page about this app
+
+• Add pagination 
+• Allow uploading an image for an item. (Item should have default image) 
+• Filter item:  completed / not completed,  text
+• Deploy to Heroku
+
+• Add users
+• Add sign in / sign up page.  Users must login /signup to use app. 
+
+• Add lists

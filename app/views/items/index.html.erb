@@ -1,14 +1,17 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
 
+
   <div class="items-index">
     <h4>To do <%= @items.incompleted.count %> from <%= @items.count %></h4>
     <% @items.incompleted.each do |item| %>
       <div class="items-list">
         <div class="incomplete-item">
+          <p><%= item.id %></p>
           <%= link_to item.content, edit_item_path(item) %>
+          <p><%= item.created_at %></p>
           <div class="btns-item">
-            <%= link_to "Done", complete_item_path(item),
+            <%= link_to "Done", incomplete_item_path(item),
                                 method: :patch,
                                 class: "button" %>
           </div>
@@ -22,9 +25,14 @@
     <% @items.completed.each do |item| %>
       <div class="items-list">
         <div class="complete-item">
+          <p><%= item.id %></p>
           <%= link_to item.content, edit_item_path(item) %>
+          <p><%= item.created_at %></p>
         </div>
       </div>
     <% end %>  
   </div>
 </div>
+
+<%# <%== pagy_nav(@pagy) %>
+<%== render partial: 'pagy/nav', locals: {pagy: @pagy} %>
