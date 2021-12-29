@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   # GET /items or /items.json
   def index
-    @pagy, @items = pagy(Item.all, items: 10)
+    @pagy, @items = pagy(current_user.items, items: 10)
   end
 
   # GET /items/1 or /items/1.json
