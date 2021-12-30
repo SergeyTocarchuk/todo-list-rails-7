@@ -3,9 +3,8 @@ Rails.application.routes.draw do
 
   root 'pages#about'
 
-  resources :users do
-    resources :lists
-  end
+  resources :users 
+  resources :lists
 
   resources :items do
     member do

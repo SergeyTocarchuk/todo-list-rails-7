@@ -9,7 +9,7 @@
         <div class="incomplete-item">
           <p><%= item.id %></p>
           <%= link_to item.content, edit_item_path(item) %>
-          <p><%= item.created_at %></p>
+          <p><%= item.date_formatted %></p>
           <div class="btns-item">
             <%= link_to "Done", incomplete_item_path(item),
                                 method: :patch,
@@ -27,7 +27,7 @@
         <div class="complete-item">
           <p><%= item.id %></p>
           <%= link_to item.content, edit_item_path(item) %>
-          <p><%= item.created_at %></p>
+          <p><%= item.date_formatted %></p>
         </div>
       </div>
     <% end %>  
