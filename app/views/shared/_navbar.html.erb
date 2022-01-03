@@ -1,5 +1,5 @@
 <nav class="nav">
-  <div class="nav-menu">
+  <div class="part-left">
     <% if user_signed_in? %>
       <%= link_to 'Todo', lists_path %>
       <%= link_to 'New List', new_list_path %>
@@ -7,8 +7,10 @@
     <% else %>
       <%= link_to "Log in", user_session_path %>
     <% end %>
-    <form>
-      <input type="text" placeholder="Search"/>
+  </div>
+  <div class="part-right">
+    <form action="/search">
+      <input type="text" name="query" />
       <button type="Submit">Search</button>
     </form>
   </div>

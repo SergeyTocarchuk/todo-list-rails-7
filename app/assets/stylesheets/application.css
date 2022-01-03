@@ -25,24 +25,53 @@
   display: flex;
   height: 60px;
   background-color: darkseagreen;
+  justify-content: space-between;
 }
 
-.nav-menu {
+.part-left {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin: 10px;
 }
 
-.nav-menu > a {
+.part-left > a {
   font-size: 20px;
   color: white;
   margin-inline: 8px;
   text-decoration: none;
 }
 
-.nav-menu > a:hover {
+.part-left > a:hover {
   color: lightgrey
+}
+
+/* navbar > Search */
+
+.part-right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+}
+
+.part-right > form > input {
+  max-width: 100px;
+  font-size: 15px;
+  padding-inline: 3px;
+  border-radius: 3px;
+  border: none;
+}
+
+.part-right > form > button {
+  width: 100px;
+  font-size: 15px;
+  color: white;
+  padding-inline: 3px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  background: darkseagreen;
 }
 
 /* content */

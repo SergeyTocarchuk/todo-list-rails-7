@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'pages#about'
+  get "search", to: "lists#search"
 
   resources :users 
   resources :lists

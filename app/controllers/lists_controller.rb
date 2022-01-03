@@ -31,6 +31,10 @@ class ListsController < ApplicationController
     end
   end
 
+  def search
+    @lists = List.where("name LIKE ?", "%" + params[:query] + "%")
+  end
+
   private
 
   def list_params
