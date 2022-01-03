@@ -9,7 +9,9 @@
 • Add sign in / sign up page.  Users must login /signup to use app. 
 • formatted date
 
-• Allow uploading an image for an item. (Item should have default image) 
+• Allow uploading an image for an item. (Item should have default image)
+  - should I save image under public folder?
+  - how to show uploaded image?
 • Filter item:  completed / not completed,  text
 • Deploy to Heroku
 

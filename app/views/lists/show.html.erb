@@ -1,15 +1,26 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
 
-  <div class="item-content">
-    <%= render @item %>
-  </div>
-
-  <div class="btns-item">
-    <%= link_to "Edit", edit_item_path(@item),
-                        class: "button" %>
-    <%= button_to "Delete", @item, 
-                            method: :delete,
-                            class: "button btn-delete" %>
+  <div class="list-content">
+    <div class="list-name">
+      <input type="file" id="list_avatar" name="list[avatar]>
+      <%= render @list %>
+      <div class="btns-item">
+        <%= link_to "Edit", edit_list_path(@list),
+                            class: "button" %>
+        <%= button_to "Delete", @list, 
+                                method: :delete,
+                                class: "button btn-delete" %>
+      </div>
+    </div>
+    <div class="item-content">
+      <% @list.items.each do |item| %>
+        <p><%= item.id %>. <%= item.content %></p>
+      <% end %>
+      <%= link_to "Add", new_item_path,
+                         class: "button" %>
+    </div>
   </div>
 </div>
+
+<%= console %>

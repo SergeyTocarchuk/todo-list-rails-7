@@ -5,8 +5,13 @@
     <% @lists.each do |list| %>
       <div class="items-list">
         <div class="incomplete-item">
+          <% if list.avatar.attached? %>
+            <%= image_tag list.avatar %>
+          <% else %>
+            <%= image_tag("ava", size: "20x20") %>
+          <% end %>
           <p><%= list.id %></p>
-          <%= link_to list.name %>
+          <p><%= link_to list.name, list_path(list) %></p>
           <p><%= list.date_formatted %></p>
         </div>
       </div>
@@ -14,3 +19,5 @@
   </div>
 
 </div>
+
+<%= console %>

@@ -1,21 +1,8 @@
-<%= form_with(model: item) do |form| %>
-  <% if item.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
-
-      <ul>
-        <% item.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<form method="post" id="this">
   <div>
-    <%= form.text_field :content %>
+    <input type="text" name="content">
   </div>
+  <input type="submit" value="Submit" form="this">
+</form>
 
-  <div class="button">
-    <%= form.submit class: "button btn-submit"%>
-  </div>
-<% end %>
+<%= console %>

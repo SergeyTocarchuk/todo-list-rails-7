@@ -1,4 +1,9 @@
 <div id="<%= dom_id list %>">
+  <% if list.avatar.attached? %>
+    <%= image_tag list.avatar %>
+  <% else %>
+    <%= image_tag("ava", size: "20x20") %>
+  <% end %>
   <p>
     <%= list.name %>
   </p>

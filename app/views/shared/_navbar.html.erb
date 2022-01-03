@@ -1,11 +1,15 @@
 <nav class="nav">
   <div class="nav-menu">
     <% if user_signed_in? %>
-      <%= link_to 'Todo List', items_path %>
-      <%= link_to 'New Item', new_item_path %>
+      <%= link_to 'Todo', lists_path %>
+      <%= link_to 'New List', new_list_path %>
       <%= link_to "Log out", destroy_user_session_path %>
     <% else %>
       <%= link_to "Log in", user_session_path %>
     <% end %>
+    <form>
+      <input type="text" placeholder="Search"/>
+      <button type="Submit">Search</button>
+    </form>
   </div>
 </nav>
