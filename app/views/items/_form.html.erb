@@ -1,8 +1,13 @@
-<form method="post" id="this">
-  <div>
-    <input type="text" name="content">
-  </div>
-  <input type="submit" value="Submit" form="this">
-</form>
+<!-- <form method="post" action="/lists/<%= params[:list_id] %>/items"> -->
+<!--   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden"> -->
+<!--   <input type="text" name="item[content]"> -->
+<!--   <input type="submit" value="Submit" > -->
+<!-- </form> -->
+
+<%= form_with(model: [@list, @item]) do |form| %>
+  <input type="hidden" name="item[list_id]" value="<%= @list.id %>">
+  <%= form.text_field :content %>
+  <%= form.submit %>
+<% end %>
 
 <%= console %>

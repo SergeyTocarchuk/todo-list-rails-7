@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   get "search", to: "lists#search"
 
   resources :users 
-  resources :lists
-  resources :items do
-    member do
-      get 'complete'
-      get 'incomplete'
+  resources :lists do
+    resources :items do
+      member do
+        get 'complete'
+        get 'incomplete'
+      end
     end
   end
 end
