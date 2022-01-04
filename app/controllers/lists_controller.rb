@@ -2,7 +2,7 @@ class ListsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @lists = current_user.lists
+    @pagy, @lists = pagy(current_user.lists, items: 5)
   end
 
   def show

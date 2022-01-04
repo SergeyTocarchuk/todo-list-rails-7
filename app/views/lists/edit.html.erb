@@ -4,21 +4,13 @@
     
     <table class="list-edit-table">
       <%= form_with(model: @list) do |form| %>
-        <tr>
-          <td><%= form.file_field :avatar, class: "list-input" %></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="list-input"><%= form.submit %></div>
-          </td>
-        </tr>
+        <div class="list-edit-form">
+          <%= form.text_field :name, class: "list-input" %>
+          <%= form.file_field :avatar, class: "list-input" %>
+          <%= form.submit class: "button btn-submit"%>
       <% end %>
     </table>
   </div>
-</div>
-
-<div class="red">
-  <p>hello</p>
 </div>
 
 <%= console %>
