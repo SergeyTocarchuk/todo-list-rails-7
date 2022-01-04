@@ -1,3 +1,11 @@
-<form>
-  <input type="file" id="list_avatar" name="list[avatar]>
-</form>
+<div class="container">
+  <div class="list-content">
+    <h1>Edit List</h1>
+    <%= form_with(model: @list) do |form| %>
+      <%= form.file_field :avatar %>
+      <%= form.submit %>
+    <% end %>
+  </div>
+</div>
+
+<%= console %>

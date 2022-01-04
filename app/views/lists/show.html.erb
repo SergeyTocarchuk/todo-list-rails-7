@@ -4,9 +4,9 @@
   <div class="list-content">
     <div class="list-name">
       <% if @list.avatar.attached? %>
-        <%= image_tag @list.avatar %>
+        <%= image_tag @list.avatar, width: "20px" %>
       <% else %>
-        <%= image_tag("ava", size: "20x20") %>
+        <%= image_tag("avatar", size: "20x20") %>
       <% end %>
       <p>
         <%= @list.name %>
@@ -22,6 +22,10 @@
   </div>
 
   <table>
+    <tr>
+      <th></th>
+      <th style="text-align: start;">Items <%=  @list.items.completed.count %>/<%= @list.items.count %></th>
+    </tr>
     <% @list.items.each do |item| %>  
       <tr>
         <td><%= item.id %></td>

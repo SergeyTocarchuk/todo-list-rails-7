@@ -295,9 +295,24 @@
   flex-direction: column;
 }
 
+.list-content > h1 {
+  margin: 0 auto;
+}
+
 .list-name {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.list-name > img {
+  margin-right: 10px;
+}
+
+.list-edit {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  border: 1px solid green;
 }

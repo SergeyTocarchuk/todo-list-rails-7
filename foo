@@ -1,7 +1,10 @@
 • Create / update / delete Items / Lists
   • make Item / List as completed (it should be visually distinctive)
   • Create Item passing list_id to it
+
 • Style it using pure css
+    Table -> th doesn't load class, why?
+
 • Show stats: total number of items, # of completed, # of not completed
 • Add users
   • Add sign in / sign up page.  Users must login /signup to use app. 
@@ -17,5 +20,5 @@
 
 • Deploy to Heroku
 
-• Styles are not loading, run: 
+• Styles are not loading, run for every change: 
 bundle exec rake assets:precompile

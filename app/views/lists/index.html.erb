@@ -6,7 +6,7 @@
       <div class="items-list">
         <div class="incomplete-item">
           <% if list.avatar.attached? %>
-            <%= image_tag list.avatar %>
+            <%= image_tag list.avatar, width: "20px" %>
           <% else %>
             <%= image_tag("ava", size: "20x20") %>
           <% end %>
