@@ -310,9 +310,21 @@
   margin-right: 10px;
 }
 
-.list-edit {
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  border: 1px solid green;
+.list-edit-table {
+  max-width: 75px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.list-input {
+  max-width: 200px;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.red {
+  border: 1px solid red;
 }

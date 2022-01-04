@@ -1,11 +1,24 @@
 <div class="container">
   <div class="list-content">
     <h1>Edit List</h1>
-    <%= form_with(model: @list) do |form| %>
-      <%= form.file_field :avatar %>
-      <%= form.submit %>
-    <% end %>
+    
+    <table class="list-edit-table">
+      <%= form_with(model: @list) do |form| %>
+        <tr>
+          <td><%= form.file_field :avatar, class: "list-input" %></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="list-input"><%= form.submit %></div>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
+</div>
+
+<div class="red">
+  <p>hello</p>
 </div>
 
 <%= console %>
