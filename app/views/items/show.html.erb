@@ -6,10 +6,12 @@
   </div>
 
   <div class="btns-item">
-    <%= link_to "Edit", edit_item_path(@item),
+    <%= link_to "Edit", edit_list_item_path(@item),
                         class: "button" %>
-    <%= button_to "Delete", @item, 
+    <%= button_to "Delete", list_item_path(@item), 
                             method: :delete,
                             class: "button btn-delete" %>
   </div>
 </div>
+
+<%= console %>

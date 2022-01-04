@@ -5,7 +5,7 @@
 <!-- </form> -->
 
 <%= form_with(model: [@list, @item]) do |form| %>
-  <input type="hidden" name="item[list_id]" value="<%= @list.id %>">
+  <input type="hidden" name="item[list_id]" value="<%= params[:list_id] %>">
   <%= form.text_field :content %>
   <%= form.submit %>
 <% end %>

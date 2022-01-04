@@ -16,3 +16,6 @@
 • Filter item:  completed / not completed,  text
 
 • Deploy to Heroku
+
+• Styles are not loading, run: 
+bundle exec rake assets:precompile
