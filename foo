@@ -3,6 +3,8 @@
 • List should have default image (avatar) / User can change avatar
 • Add users
   • Add sign in / sign up page.  Users must login /signup to use app.
+  • Add Admin role for User
+    • Admin can edit User e-mail / delete User
 
 • Create / update / delete Items / Lists
   • make Item / List as completed (it should be visually distinctive)
@@ -15,7 +17,7 @@
  
   • Home page should display current users todo list. 
   • If user not logged in homepage show landing page about this app
-  • Add Admin role for User
+  
 
 • Allow uploading images for an Item.
 

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="list-content">
+    <h1>Edit User</h1>
+    
+      <%= form_with(model: @user) do |form| %>
+        <div class="">
+          <%= form.text_field :email %><br>
+          <%= form.check_box(:admin, {}, true) %>
+          <%= form.label(:admin, "Admin") %><br>
+          <%= form.submit %>
+      <% end %>
+  </div>
+</div>
+
+<%= console %>

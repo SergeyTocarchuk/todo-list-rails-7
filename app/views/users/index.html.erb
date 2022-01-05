@@ -3,10 +3,11 @@
 
   <table>
     <tr>
-      <td>ID</td>
-      <td>e-mail</td>
-      <td>Role</td>
-      <td>Lists</td>
+      <th>ID</th>
+      <th>e-mail</th>
+      <th>Role</th>
+      <th>Lists</th>
+      <th>Actions</th>
     <tr>
     <% @users.each do |user| %>
       <tr>
@@ -14,6 +15,7 @@
         <td><%= user.email %></td>
         <td><%= user.admin %></td>
         <td><%= user.lists.count %></td>
+        <td><%= link_to 'Edit', edit_user_path(user.id) %> | <%= link_to 'Delete' %></td>
       <tr>
     <% end %>
   </table>
