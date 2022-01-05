@@ -29,7 +29,7 @@
     <% @list.items.each do |item| %>  
       <tr>
         <td><%= item.id %></td>
-        <td><%= link_to item.content, list_item_path(@list) %></td>
+        <td><%= link_to item.content, list_item_path(@list, item.id) %></td>
       </tr>
     <% end %>
   </table>

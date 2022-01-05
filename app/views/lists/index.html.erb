@@ -1,22 +1,23 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
 
-  <div class="items-index">
+  <table>
     <% @lists.each do |list| %>
-      <div class="items-list">
-        <div class="incomplete-item">
+      <tr>
+        <td>
           <% if list.avatar.attached? %>
             <%= image_tag list.avatar, width: "20px" %>
           <% else %>
             <%= image_tag("ava", size: "20x20") %>
           <% end %>
-          <p><%= list.id %></p>
-          <p><%= link_to list.name, list_path(list) %></p>
-          <p><%= list.date_formatted %></p>
-        </div>
-      </div>
-    <% end %>  
-  </div>
+        </td>
+        <td><%= list.id %></td>
+        <td><%= link_to list.name, list_path(list) %></td>
+        <td><%= list.items.completed.count %> / <%= list.items.count %></td>
+        <td><%= list.date_formatted %></td>
+      <tr>
+    <% end %>
+  </table>
 
   <%== render partial: 'pagy/nav', locals: {pagy: @pagy} %>
 
