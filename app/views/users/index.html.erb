@@ -15,15 +15,20 @@
         <td><%= user.email %></td>
         <td><%= user.admin %></td>
         <td><%= user.lists.count %></td>
-        <td><%= link_to 'Edit', edit_user_path(user.id) %> | 
-            <%= button_to 'Delete', user_path(user.id), method: :delete %>
+        <td>
+          <div class="users-button">
+            <%= link_to 'Edit', edit_user_path(user.id) %> | 
+            <%= button_to 'Delete', user_path(user.id), method: :delete,
+                                                        class: "user-button-delete" %>
+          </div>
         </td>
       <tr>
     <% end %>
   </table>
 
-  <%== render partial: 'pagy/nav', locals: {pagy: @pagy} %>
-
+  <div class="users-pagy">
+    <%== render partial: 'pagy/nav', locals: {pagy: @pagy} %>
+  </div>
 </div>
 
 <%= console %>

@@ -323,3 +323,59 @@
 }
 
 /* User section */
+
+.users-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.users-button > a {
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-inline: 20px;
+  width: 75px;
+  text-align: center;
+  color: white;
+  background-color: darkseagreen;
+  border-radius: 3px;  
+}
+
+.user-button-delete {
+  font-size: 16px;
+  cursor: pointer;
+  margin-inline: 20px;
+  width: 75px;
+  text-align: center;
+  color: white;
+  background-color: lightcoral;
+  border: none;
+  border-radius: 3px;  
+}
+
+.users-pagy {
+  margin-top: 25px;
+}
+
+.user-edit-section {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 200px;
+}
+
+.user-edit-form {
+  margin-top: 20px;
+}
+
+.user-edit-submit-input {
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px;
+  text-align: center;
+  color: white;
+  background-color: darkseagreen;
+  border: none;
+  border-radius: 3px;  
+}
