@@ -1,8 +1,11 @@
 <nav class="nav">
   <div class="part-left">
     <% if user_signed_in? %>
-      <%= link_to 'Todo', lists_path %>
+      <%= link_to 'Todo List', lists_path %>
       <%= link_to 'New List', new_list_path %>
+      <% if user_signed_in? && current_user.admin %>
+        <%= link_to "Users", users_path %>
+      <% end %>
       <%= link_to "Log out", destroy_user_session_path %>
     <% else %>
       <%= link_to "Log in", user_session_path %>

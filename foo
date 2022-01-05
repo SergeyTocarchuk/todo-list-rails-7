@@ -4,7 +4,8 @@
 • Add users
   • Add sign in / sign up page.  Users must login /signup to use app.
   • Add Admin role for User
-    • Admin can edit User e-mail / delete User
+    • Admin can edit User e-mail / User'role / delete User (with button_to)
+    • Add pagination to Users
 
 • Create / update / delete Items / Lists
   • make Item / List as completed (it should be visually distinctive)
