@@ -2,14 +2,6 @@
   <div class="list-content">
     <h1>Edit List</h1>
     
-    <%= form_with(model: @list) do |form| %>
-      <div class="list-edit-form">
-        <%= form.text_field :name, class: "list-input" %>
-        <%= form.file_field :avatar, class: "list-input" %>
-        <%= form.submit class: "button btn-submit"%>
-    <% end %>
-    
-  </div>
+    <%= render "form", list: @list %>
+  
 </div>
-
-<%= console %>

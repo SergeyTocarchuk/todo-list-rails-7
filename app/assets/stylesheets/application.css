@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
  * {
@@ -91,19 +92,19 @@
 }
 
 .item-new > h3 {
-  margin-bottom: 20px;
+  margin: 0 auto;
 }
 
 .item-form {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
-.item-form > input {
-  margin-inline: 10px;
+.item-input {
+  margin: 5px;
 }
-
 
 .button {
   width: 100px;
@@ -293,6 +294,8 @@
 .list-content {
   display: flex;
   flex-direction: column;
+  max-width: 600px;  
+  margin: 0 auto;
 }
 
 .list-content > h1 {
@@ -313,7 +316,6 @@
 .list-edit-form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   margin: 0 auto;
   margin-top: 20px;
 }

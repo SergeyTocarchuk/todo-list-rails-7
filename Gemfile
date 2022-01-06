@@ -44,6 +44,7 @@ gem "bootsnap", require: false
 
 gem 'devise'
 gem 'pagy'
+gem "font-awesome-rails"
 
 # Use Sass to process CSS
 # gem "sassc-rails"

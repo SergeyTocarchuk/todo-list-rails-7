@@ -5,10 +5,12 @@
 <!-- </form> -->
 
 <%= form_with(model: [@list, @item]) do |form| %>
-  <input type="hidden" name="item[list_id]" value="<%= params[:list_id] %>">
-  <%= form.text_field :content %>
-  <%= form.file_field :images, multiple: true %>
-  <%= form.submit %>
+  <div class="item-form">
+    <input type="hidden" name="item[list_id]" value="<%= params[:list_id] %>">
+    <%= form.text_field :content, class: "item-input" %>
+    <%= form.file_field :images, multiple: true, class: "item-input" %>
+    <%= form.submit class: "button btn-submit" %>
+  </div>
 <% end %>
 
 <%= console %>
