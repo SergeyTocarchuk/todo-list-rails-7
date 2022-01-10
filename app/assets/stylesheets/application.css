@@ -294,12 +294,30 @@
 .list-content {
   display: flex;
   flex-direction: column;
-  max-width: 600px;  
+  max-width: 750px;  
   margin: 0 auto;
 }
 
 .list-content > h1 {
   margin: 0 auto;
+}
+
+.list-table-cell {
+  margin-inline: 10px;
+}
+
+.item-icon-incompleted {
+  color: lightgrey;
+  font-size: 18px;
+}
+
+.item-icon-completed {
+  color: darkseagreen;
+  font-size: 18px;
+}
+
+.item-completed {
+  text-decoration: line-through;
 }
 
 .list-name {

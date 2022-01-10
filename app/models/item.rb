@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   has_many_attached :images
 
   def completed?
-    is_completed.blank?
+    !is_completed.blank?
   end
 
   def date_formatted

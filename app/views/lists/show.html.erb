@@ -24,13 +24,31 @@
   <table>
     <tr>
       <th></th>
+      <th></th>
       <th style="text-align: start;">Items <%=  @list.items.completed.count %>/<%= @list.items.count %></th>
     </tr>
     <% @list.items.each do |item| %>  
       <tr>
-        <td><%= fa_icon "camera-retro" %></td>
-        <td><%= item.id %></td>
-        <td><%= link_to item.content, list_item_path(@list, item.id) %></td>
+        <td>
+          <% if item.completed? %>
+            <%= link_to incomplete_list_item_path(@list, item.id) do %>
+              <%= fa_icon "chevron-circle-down", class: "item-icon-completed" %>
+            <% end %>
+          <% else %>
+            <%= link_to complete_list_item_path(@list, item.id) do %>
+              <%= fa_icon "circle", class: "item-icon-incompleted" %>
+            <% end %> 
+          <% end %>
+        </td>
+        <td>
+          <% if item.completed? %>
+            <div class="item-completed">
+              <%= item.content %>
+            </div>
+          <% else %>
+            <%= link_to item.content, list_item_path(@list, item.id) %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>

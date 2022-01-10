@@ -18,11 +18,11 @@ class ItemsController < ApplicationController
 
   # POST /items or /items.json
   def create
-    @list = current_user.lists.find_by params[:id]
+    @list = current_user.lists.find_by params[:list_id]
     @item = Item.new(item_params)
     respond_to do |format|
       if @item.save
-        format.html { redirect_to list_path(@list.id), notice: "Item was successfully created." }
+        format.html { redirect_to list_path(@item.list_id), notice: "Item was successfully created." }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -57,13 +57,13 @@ class ItemsController < ApplicationController
   def complete
     @item.is_completed = true
     @item.save
-    redirect_to items_path
+    redirect_to list_path(@item.list_id)
   end
 
   def incomplete
     @item.is_completed = nil
     @item.save
-    redirect_to items_path
+    redirect_to list_path(@item.list_id)
   end
 
   private

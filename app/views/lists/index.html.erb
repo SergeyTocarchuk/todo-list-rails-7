@@ -1,23 +1,35 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
 
-  <table>
-    <% @lists.each do |list| %>
-      <tr>
-        <td>
-          <% if list.avatar.attached? %>
-            <%= image_tag list.avatar, width: "20px" %>
-          <% else %>
-            <%= image_tag("ava", size: "20x20") %>
-          <% end %>
-        </td>
-        <td><%= list.id %></td>
-        <td><%= link_to list.name, list_path(list) %></td>
-        <td><%= list.items.completed.count %> / <%= list.items.count %></td>
-        <td><%= list.date_formatted %></td>
-      <tr>
-    <% end %>
-  </table>
+  <div class="list-content">
+    <table>
+      <% @lists.each do |list| %>
+        <tr>
+          <td>
+            <% if list.avatar.attached? %>
+              <%= image_tag list.avatar, width: "20px" %>
+            <% else %>
+              <%= image_tag("ava", size: "20x20") %>
+            <% end %>
+          </td>
+          <td>
+            <div class="list-table-cell"> 
+              <% if list.items.completed.count == list.items.count %>
+                <%= fa_icon "chevron-circle-down", class: "item-icon-completed" %>
+              <% end %>
+            </div>
+          </td>
+          <td><%= link_to list.name, list_path(list) %></td>
+          <td>
+            <div class="list-table-cell"> <%= list.items.completed.count %> / <%= list.items.count %> </div>
+          </td>
+          <td>
+            <div class="list-table-cell"> <%= list.date_formatted %> </div>
+          </td>
+        <tr>
+      <% end %>
+    </table>
+  </div>
 
   <%== render partial: 'pagy/nav', locals: {pagy: @pagy} %>
 
