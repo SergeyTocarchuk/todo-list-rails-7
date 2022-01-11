@@ -211,7 +211,6 @@ DEPENDENCIES
   devise
   font-awesome-rails
   importmap-rails
-  io-console
   jbuilder
   pagy
   pg
