@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[ show edit update destroy complete incomplete]
+  before_action :set_item, only: %i[ show complete incomplete]
   before_action :authenticate_user!
 
   # GET /items/1 or /items/1.json
@@ -8,17 +8,13 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @list = current_user.lists.find_by params[:id]
+    @list = current_user.lists.find_by id: params[:list_id]
     @item = Item.new
-  end
-
-  # GET /items/1/edit
-  def edit
   end
 
   # POST /items or /items.json
   def create
-    @list = current_user.lists.find_by params[:list_id]
+    @list = current_user.lists.find_by id: params[:list_id]
     @item = Item.new(item_params)
     respond_to do |format|
       if @item.save
@@ -31,11 +27,20 @@ class ItemsController < ApplicationController
     end
   end
 
+  # GET /items/1/edit
+  def edit
+    @list = current_user.lists.find_by params[:id]
+    @item = @list.items.find_by params[:id]
+  end
+
   # PATCH/PUT /items/1 or /items/1.json
   def update
+    @list = current_user.lists.find_by params[:id]
+    @item = @list.items.find_by params[:id]
+
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to item_url(@item), notice: "Item was successfully updated." }
+        format.html { redirect_to list_item_path(@item.list_id, @item.id), notice: "Item was successfully updated." }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -46,10 +51,12 @@ class ItemsController < ApplicationController
 
   # DELETE /items/1 or /items/1.json
   def destroy
+    @list = current_user.lists.find_by params[:list_id]
+    @item = @list.items.find_by params[:id]
     @item.destroy
 
     respond_to do |format|
-      format.html { redirect_to items_url, notice: "Item was successfully destroyed." }
+      format.html { redirect_to list_path(@list), notice: "Item was successfully destroyed." }
       format.json { head :no_content }
     end
   end

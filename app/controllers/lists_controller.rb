@@ -46,7 +46,12 @@ class ListsController < ApplicationController
   end
 
   def search
-    @lists = List.where("name LIKE ?", "%" + params[:query] + "%")
+    @pagy, @lists = pagy(current_user.lists.where("name LIKE ?", "%" + params[:query] + "%"), items: 5)
+  end
+
+  def filter
+    @list = current_user.lists.find_by params[:id]
+    @items = @list.items.incompleted
   end
 
   private

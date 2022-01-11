@@ -7,4 +7,10 @@ class List < ApplicationRecord
     created_at.strftime("%d.%m.%Y")
   end
 
+  def completed?
+    if items.completed.count == items.count
+      return true
+    end
+  end
+
 end

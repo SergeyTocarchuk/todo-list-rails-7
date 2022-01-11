@@ -14,12 +14,22 @@
           </td>
           <td>
             <div class="list-table-cell"> 
-              <% if list.items.completed.count == list.items.count %>
+              <% if list.completed? %>
                 <%= fa_icon "chevron-circle-down", class: "item-icon-completed" %>
               <% end %>
             </div>
           </td>
-          <td><%= link_to list.name, list_path(list) %></td>
+          <td>
+            <% if list.completed? %>
+              <div class="list-completed">
+                <%= link_to list.name, list_path(list) %>
+              </div>
+            <% else %>
+              <div class="list-incompleted">
+                <%= link_to list.name, list_path(list) %>
+              </div>
+            <% end %>
+          </td>
           <td>
             <div class="list-table-cell"> <%= list.items.completed.count %> / <%= list.items.count %> </div>
           </td>

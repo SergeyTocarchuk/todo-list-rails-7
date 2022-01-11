@@ -14,9 +14,9 @@
   </div>
 
   <div class="btns-item">
-    <%= link_to "Edit", edit_list_item_path(@item),
+    <%= link_to "Edit", edit_list_item_path(@item.list_id, @item.id),
                         class: "button" %>
-    <%= button_to "Delete", list_item_path(@item), 
+    <%= button_to "Delete", list_item_path(@item.list_id, @item.id), 
                             method: :delete,
                             class: "button btn-delete" %>
   </div>

@@ -213,6 +213,15 @@
   margin-inline: 20px;
 }
 
+.item-gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px;
+}
+
 /* pagination */
 
 .pagy {
@@ -316,8 +325,20 @@
   font-size: 18px;
 }
 
-.item-completed {
+.item-completed > a {
   text-decoration: line-through;
+}
+
+.item-incompleted > a {
+  text-decoration: none;
+}
+
+.list-completed > a {
+  text-decoration: line-through;
+}
+
+.list-incompleted > a {
+  text-decoration: none;
 }
 
 .list-name {
