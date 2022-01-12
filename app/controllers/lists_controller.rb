@@ -1,8 +1,8 @@
 class ListsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_member!
 
   def index
-    @pagy, @lists = pagy(current_user.lists, items: 5)
+    @lists = List.all
   end
 
   def show

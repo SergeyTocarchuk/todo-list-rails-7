@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :require_admin
+  before_action :authenticate_admin!
 
   def index
     @pagy, @users = pagy(User.all, items: 5)
@@ -40,13 +39,6 @@ class UsersController < ApplicationController
 
   def user_params
     params[:user].permit(:email, :admin)
-  end
-
-  def require_admin
-    if !(user_signed_in? && current_user.admin)
-      flash[:alert] = "Only admins can perform that action"
-      redirect_to root_path
-    end
   end
 
 end
