@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_12_102205) do
+ActiveRecord::Schema.define(version: 2022_01_13_142042) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2022_01_12_102205) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_completed"
     t.integer "list_id", null: false
+    t.string "priority", default: "medium"
     t.index ["list_id"], name: "index_items_on_list_id"
   end
 

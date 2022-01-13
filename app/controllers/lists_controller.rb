@@ -2,9 +2,7 @@ class ListsController < ApplicationController
   before_action :authenticate_member!
 
   def index
-    if current_member :user
-      @lists = current_member.lists
-    end
+    @lists = current_member.lists
   end
 
   def administration
