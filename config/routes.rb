@@ -5,8 +5,13 @@ Rails.application.routes.draw do
   root 'pages#about'
   get "search", to: "lists#search"
 
-  resources :admins, only: [:show] do
-    get "lists", to: "lists#administration"
+  resources :admins, only: [:show] 
+  get 'admin', to: 'admins#show'
+  get 'all-lists', to: 'lists#administration'
+  get 'all-users', to: 'users#index'
+
+  namespace :admin do
+    resources :lists
   end
 
   resources :users 

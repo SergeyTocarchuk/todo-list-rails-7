@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
   def show
-    @admin = Admin.find(params[:id])
+    @admin = current_member
   end
 end
