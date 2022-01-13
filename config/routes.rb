@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
   root 'pages#about'
-  get "search", to: "lists#search"
+  get "search-list", to: "search_lists#show"
 
   get 'admin', to: 'admins#show'
   get 'all-lists', to: 'lists#administration'

@@ -12,9 +12,10 @@
     <% end %>
   </div>
   <div class="part-right">
-    <form action="/search">
-      <input type="text" name="query" />
-      <button type="Submit">Search</button>
-    </form>
+    <% if user_signed_in? %>
+      <p><%= current_user.email %></p>
+    <% else %>
+      <p><%= current_admin.email %></p>
+    <% end %>
   </div>
 </nav>

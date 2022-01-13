@@ -47,32 +47,20 @@
   color: lightgrey
 }
 
-/* navbar > Search */
+/* navbar > current_member email */
 
 .part-right {
   display: flex;
-  justify-content: flex-start;
+  justify-content: end;
   align-items: center;
   margin: 10px;
+  max-width: 200px;
 }
 
-.part-right > form > input {
-  max-width: 100px;
+.part-right > p {
   font-size: 15px;
   padding-inline: 3px;
-  border-radius: 3px;
-  border: none;
-}
-
-.part-right > form > button {
-  width: 100px;
-  font-size: 15px;
   color: white;
-  padding-inline: 3px;
-  border-radius: 3px;
-  border: none;
-  cursor: pointer;
-  background: darkseagreen;
 }
 
 /* content */
@@ -360,7 +348,7 @@
 }
 
 .list-input {
-  margin: 5px;
+  margin-bottom: 5px;
 }
 
 .item-priority-high {
@@ -373,6 +361,19 @@
 
 .item-priority-low {
   color: lightgrey;
+}
+
+.list-search-button {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  background-color: darkseagreen;
+  border-radius: 3px;
+  padding: 3px 10px;
+}
+
+.list-search-icon {
+  color: white;
 }
 
 /* User section */
