@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_admin!
+  before_action ->{ authenticate_member! :admin }
 
   def index
     @pagy, @users = pagy(User.all, items: 5)
