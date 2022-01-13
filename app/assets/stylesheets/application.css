@@ -363,6 +363,18 @@
   margin: 5px;
 }
 
+.item-priority-high {
+  color: lightcoral;
+}
+
+.item-priority-middle {
+  color: darkseagreen;
+}
+
+.item-priority-low {
+  color: lightgrey;
+}
+
 /* User section */
 
 .users-button {
