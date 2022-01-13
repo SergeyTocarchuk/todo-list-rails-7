@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(admin)
-    lists_path
+    admin_path
   end
 end

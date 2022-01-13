@@ -2,7 +2,9 @@ class ListsController < ApplicationController
   before_action :authenticate_member!
 
   def index
-    @lists = List.all
+    if current_member :user
+      @lists = current_member.lists
+    end
   end
 
   def administration
@@ -46,6 +48,16 @@ class ListsController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    @list = List.find(params[:id])
+    @list.destroy
+
+    respond_to do |format|
+      format.html { redirect_to lists_path, notice: "List was successfully removed." }
+      format.json { head :no_content }
     end
   end
 
