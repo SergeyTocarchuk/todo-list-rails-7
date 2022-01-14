@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
   root 'pages#about'
-  get "search-list", to: "search_lists#show"
+  
+  get "search-list", to: "search_lists#search"
+  get "show-search-list", to: "search_lists#show"
 
   get 'admin', to: 'admins#show'
   get 'all-lists', to: 'lists#administration'
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :lists
+    resources :users
   end
 
   resources :users 

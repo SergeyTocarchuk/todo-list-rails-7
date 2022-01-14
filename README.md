@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+    <% if user_signed_in? %>
+      <p><%= current_user.email %></p>
+    <% else %>
+      <p><%= current_admin.email %></p>
+    <% end %>
