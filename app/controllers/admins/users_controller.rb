@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Admins::UsersController < Admins::BaseController
   before_action ->{ authenticate_member! :admin }
 
   def index
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_path, notice: "User was successfully updated." }
+        format.html { redirect_to admins_users_path, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_path, notice: "User was successfully removed." }
+      format.html { redirect_to admins_users_path, notice: "User was successfully removed." }
       format.json { head :no_content }
     end
   end

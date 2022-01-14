@@ -1,4 +1,4 @@
-class ListsController < ApplicationController
+class Admins::ListsController < Admins::BaseController
   before_action :authenticate_member!
 
   def index

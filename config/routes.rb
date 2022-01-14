@@ -7,16 +7,15 @@ Rails.application.routes.draw do
   get "search-list", to: "search_lists#search"
   get "show-search-list", to: "search_lists#show"
 
-  get 'admin', to: 'admins#show'
-  get 'all-lists', to: 'lists#administration'
-  get 'all-users', to: 'users#index'
+  # get 'all-lists', to: 'lists#administration'
+  # get 'all-users', to: 'users#index'
 
-  namespace :admin do
+  namespace :admins do
+    resources :admins, only: [:show]
     resources :lists
     resources :users
   end
 
-  resources :users 
   resources :lists do
     resources :items do
       member do
