@@ -4,13 +4,19 @@ Rails.application.routes.draw do
 
   root 'pages#about'
   
-  get "search-list", to: "search_lists#search"
-  get "show-search-list", to: "search_lists#show"
-
   namespace :admins do
     resources :admins, only: [:show]
-    resources :lists
+    resources :lists do
+      collection do
+        get 'search'
+      end
+    end
     resources :users
+  end
+
+  namespace :search do
+    get "list", to: "search_lists#search"
+    get "show-list", to: "search_lists#show"
   end
 
   resources :lists do
