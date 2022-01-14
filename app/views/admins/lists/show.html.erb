@@ -1,0 +1,82 @@
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+
+  <div class="list-content">
+    <div class="list-name">
+      <% if @list.avatar.attached? %>
+        <%= image_tag @list.avatar, width: "20px" %>
+      <% else %>
+        <%= image_tag("ava", size: "20x20") %>
+      <% end %>
+      <p>
+        <%= @list.name %>
+      </p>
+      <div class="btns-item">
+        <%= link_to "Edit", edit_admins_list_path(@list),
+                            class: "button" %>
+        <%= button_to "Delete", admins_list_path(@list), 
+                                method: :delete,
+                                class: "button btn-delete" %>
+      </div>
+    </div>
+  </div>
+
+  <table>
+    <tr>
+      <th></th>
+      <th></th>
+      <th style="text-align: start;">Items <%=  @list.items.completed.count %>/<%= @list.items.count %></th>
+      <th style="text-align: start;">Priority</th>
+    </tr>
+    <% @list.items.each do |item| %>  
+      <tr>
+        <td>
+          <% if item.completed? %>
+            <%= link_to incomplete_list_item_path(@list, item.id) do %>
+              <%= fa_icon "chevron-circle-down", class: "item-icon-completed" %>
+            <% end %>
+          <% else %>
+            <%= link_to complete_list_item_path(@list, item.id) do %>
+              <%= fa_icon "circle", class: "item-icon-incompleted" %>
+            <% end %> 
+          <% end %>
+        </td>
+        <td>
+          <% if item.images.attached? %>
+            <%= link_to list_item_path(@list, item.id) do %>
+              <%= fa_icon "paperclip", class: "item-icon-completed" %>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
+          <% if item.completed? %>
+            <div class="item-completed">
+              <%= link_to item.content, list_item_path(@list, item.id) %>
+            </div>
+          <% else %>
+            <div class="item-incompleted">
+              <%= link_to item.content, list_item_path(@list, item.id) %>
+            </div>
+          <% end %>
+        </td>
+        <td>
+          <% if item.priority_high? %>
+            <%= fa_icon "square", class: "item-priority-high" %>
+          <% elsif item.priority_low? %>
+            <%= fa_icon "square", class: "item-priority-low" %>
+          <% else %>
+            <%= fa_icon "square", class: "item-priority-middle" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+
+  <div class="list-content">
+    <div class="item-content">
+      <%= link_to "Add Item", new_list_item_path(@list),
+                              class: "button" %>
+    </div>
+  </div>
+</div>

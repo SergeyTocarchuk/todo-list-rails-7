@@ -1,11 +1,7 @@
 class Admins::ListsController < Admins::BaseController
-  before_action :authenticate_member!
+  before_action :authenticate_admin!
 
   def index
-    @lists = List.all
-  end
-
-  def administration
     @lists = List.all
   end
 
@@ -22,11 +18,11 @@ class Admins::ListsController < Admins::BaseController
   end
 
   def create
-    @list = current_user.lists.build(list_params)
+    @list = List.create(list_params)
     @list.avatar.attach(params[:avatar])
     respond_to do |format|
       if @list.save
-        format.html { redirect_to lists_path, notice: "List was successfully created." }
+        format.html { redirect_to admins_lists_path, notice: "List was successfully created." }
         format.json { render :show, status: :created, location: @list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +36,7 @@ class Admins::ListsController < Admins::BaseController
 
     respond_to do |format|
       if @list.update(list_params)
-        format.html { redirect_to list_path(@list), notice: "List was successfully updated." }
+        format.html { redirect_to admins_list_path(@list), notice: "List was successfully updated." }
         format.json { render :show, status: :ok, location: @list }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,13 +50,9 @@ class Admins::ListsController < Admins::BaseController
     @list.destroy
 
     respond_to do |format|
-      format.html { redirect_to lists_path, notice: "List was successfully removed." }
+      format.html { redirect_to admins_lists_path, notice: "List was successfully removed." }
       format.json { head :no_content }
     end
-  end
-
-  def search
-    @pagy, @lists = pagy(current_member.lists.where("name LIKE ?", "%" + params[:query] + "%"), items: 5)
   end
 
   def filter
