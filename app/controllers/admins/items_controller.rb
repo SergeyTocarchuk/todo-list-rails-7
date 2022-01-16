@@ -80,7 +80,8 @@ class Admins::ItemsController < Admins::BaseController
 
   def search_show
     @list = List.all.find_by params[:list_id]
-    @pagy, @items = pagy(Item.all.where("content LIKE ?", "%" + params[:query] + "%"), items: 5)
+    @items = Item.all.where("content LIKE ?", "%" + params[:query] + "%")
+    @pagy, @items = pagy(@items.completed), items: 5)
   end
 
   private

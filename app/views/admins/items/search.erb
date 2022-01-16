@@ -4,6 +4,12 @@
     <form action="/admins/lists/<%= params[:list_id] %>/items/search_show">
       <div class="list-edit-form">
         <input type="text" name="query" class="list-input" />
+        <select name="cars" id="cars" form="carform">
+          <option value="true">Completed</option>
+          <option value="false">Incompleted</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
         <button type="Submit" class="button btn-submit">Search</button>
       </div>
     </form>

@@ -1,60 +1,66 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
-
+  <%= link_to 'Back to List', admins_list_path(@list) %>
   <div class="list-content">
-    <table style="margin: 20px;">
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th style="text-align: start;">Priority</th>
-        <th></th>
-      </tr>
-      <% @items.each do |item| %>  
+    <div class="list-name">
+      <table style="margin: 20px;">
         <tr>
-          <td>
-            <% if item.completed? %>
-              <%= link_to incomplete_admins_list_item_path(@list, item.id) do %>
-                <%= fa_icon "chevron-circle-down", class: "item-icon-completed" %>
-              <% end %>
-            <% else %>
-              <%= link_to complete_admins_list_item_path(@list, item.id) do %>
-                <%= fa_icon "circle", class: "item-icon-incompleted" %>
-              <% end %> 
-            <% end %>
-          </td>
-          <td>
-            <% if item.images.attached? %>
-              <%= link_to list_item_path(@list, item.id) do %>
-                <%= fa_icon "paperclip", class: "item-icon-completed" %>
-              <% end %>
-            <% end %>
-          </td>
-          <td>
-            <% if item.completed? %>
-              <div class="item-completed">
-                <%= link_to item.content, admins_list_item_path(@list, item.id) %>
-              </div>
-            <% else %>
-              <div class="item-incompleted">
-                <%= link_to item.content, admins_list_item_path(@list, item.id) %>
-              </div>
-            <% end %>
-          </td>
-          <td>
-            <% if item.priority_high? %>
-              <%= fa_icon "square", class: "item-priority-high" %>
-            <% elsif item.priority_low? %>
-              <%= fa_icon "square", class: "item-priority-low" %>
-            <% else %>
-              <%= fa_icon "square", class: "item-priority-middle" %>
-            <% end %>
-          </td>
+          <th></th>
+          <th></th>
+          <th style="text-align: start;">Items</th>
+          <th style="text-align: start;">Priority</th>
+          <th></th>
         </tr>
-      <% end %>
-    </table>
+        <% @items.each do |item| %>  
+          <tr>
+            <td style="margin-inline: 10px;">
+              <% if item.completed? %>
+                <%= link_to incomplete_admins_list_item_path(@list, item.id) do %>
+                  <%= fa_icon "chevron-circle-down", class: "item-icon-completed" %>
+                <% end %>
+              <% else %>
+                <%= link_to complete_admins_list_item_path(@list, item.id) do %>
+                  <%= fa_icon "circle", class: "item-icon-incompleted" %>
+                <% end %> 
+              <% end %>
+            </td>
+            <td>
+              <% if item.images.attached? %>
+                <%= link_to list_item_path(@list, item.id) do %>
+                  <%= fa_icon "paperclip", class: "item-icon-completed" %>
+                <% end %>
+              <% end %>
+            </td>
+            <td>
+              <div style="margin: 20px;">
+                <% if item.completed? %>
+                  <div class="item-completed">
+                    <%= link_to item.content, admins_list_item_path(@list, item.id) %>
+                  </div>
+                <% else %>
+                  <div class="item-incompleted">
+                    <%= link_to item.content, admins_list_item_path(@list, item.id) %>
+                  </div>
+                <% end %>
+              </div>
+            </td>
+            <td>
+              <% if item.priority_high? %>
+                <%= fa_icon "square", class: "item-priority-high" %>
+              <% elsif item.priority_low? %>
+                <%= fa_icon "square", class: "item-priority-low" %>
+              <% else %>
+                <%= fa_icon "square", class: "item-priority-middle" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
 
   <%== render partial: 'pagy/nav', locals: {pagy: @pagy} %>
 
 </div>
+
+<%= console %>
