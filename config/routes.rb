@@ -11,6 +11,16 @@ Rails.application.routes.draw do
         get 'search'
         get 'search_show'
       end
+      resources :items do
+        member do
+          get 'complete'
+          get 'incomplete'
+        end
+        collection do
+          get 'search'
+          get 'search_show'
+        end
+      end
     end
     resources :users
   end

@@ -21,12 +21,17 @@
     </div>
   </div>
 
-  <table>
+  <table style="margin: 20px;">
     <tr>
       <th></th>
       <th></th>
       <th style="text-align: start;">Items <%=  @list.items.completed.count %>/<%= @list.items.count %></th>
       <th style="text-align: start;">Priority</th>
+      <th>
+        <%= link_to search_admins_lists_path, class: "list-search-button" do %>
+          Search List <%= fa_icon "search", class: "list-search-icon" %>
+        <% end %>
+      </th>
     </tr>
     <% @list.items.each do |item| %>  
       <tr>
@@ -51,11 +56,11 @@
         <td>
           <% if item.completed? %>
             <div class="item-completed">
-              <%= link_to item.content, list_item_path(@list, item.id) %>
+              <%= link_to item.content, admins_list_item_path(@list, item.id) %>
             </div>
           <% else %>
             <div class="item-incompleted">
-              <%= link_to item.content, list_item_path(@list, item.id) %>
+              <%= link_to item.content, admins_list_item_path(@list, item.id) %>
             </div>
           <% end %>
         </td>
@@ -72,10 +77,9 @@
     <% end %>
   </table>
 
-
   <div class="list-content">
     <div class="item-content">
-      <%= link_to "Add Item", new_list_item_path(@list),
+      <%= link_to "Add Item", new_admins_list_item_path(@list),
                               class: "button" %>
     </div>
   </div>
