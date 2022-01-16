@@ -28,7 +28,7 @@
       <th style="text-align: start;">Items <%=  @list.items.completed.count %>/<%= @list.items.count %></th>
       <th style="text-align: start;">Priority</th>
       <th>
-        <%= link_to search_admins_lists_path, class: "list-search-button" do %>
+        <%= link_to search_admins_list_items_path(@list), class: "list-search-button" do %>
           Search List <%= fa_icon "search", class: "list-search-icon" %>
         <% end %>
       </th>
@@ -37,11 +37,11 @@
       <tr>
         <td>
           <% if item.completed? %>
-            <%= link_to incomplete_list_item_path(@list, item.id) do %>
+            <%= link_to incomplete_admins_list_item_path(@list, item.id) do %>
               <%= fa_icon "chevron-circle-down", class: "item-icon-completed" %>
             <% end %>
           <% else %>
-            <%= link_to complete_list_item_path(@list, item.id) do %>
+            <%= link_to complete_admins_list_item_path(@list, item.id) do %>
               <%= fa_icon "circle", class: "item-icon-incompleted" %>
             <% end %> 
           <% end %>
@@ -84,3 +84,5 @@
     </div>
   </div>
 </div>
+
+<%= console %>

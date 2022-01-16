@@ -65,14 +65,22 @@ class Admins::ItemsController < Admins::BaseController
     @item = Item.find(params[:id])
     @item.is_completed = true
     @item.save
-    redirect_to list_path(@item.list_id)
+    redirect_to admins_list_path(@item.list_id)
   end
 
   def incomplete
     @item = Item.find(params[:id])
     @item.is_completed = nil
     @item.save
-    redirect_to list_path(@item.list_id)
+    redirect_to admins_list_path(@item.list_id)
+  end
+
+  def search
+  end
+
+  def search_show
+    @list = List.all.find_by params[:list_id]
+    @pagy, @items = pagy(Item.all.where("content LIKE ?", "%" + params[:query] + "%"), items: 5)
   end
 
   private

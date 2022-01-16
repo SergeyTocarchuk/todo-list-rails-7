@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="list-content">
+    <h3>Search List</h3>
+    <form action="/admins/lists/<%= params[:list_id] %>/items/search_show">
+      <div class="list-edit-form">
+        <input type="text" name="query" class="list-input" />
+        <button type="Submit" class="button btn-submit">Search</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%= console %>
