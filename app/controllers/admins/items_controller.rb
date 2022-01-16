@@ -81,7 +81,8 @@ class Admins::ItemsController < Admins::BaseController
   def search_show
     @list = List.all.find_by params[:list_id]
     @items = Item.all.where("content LIKE ?", "%" + params[:query] + "%")
-    @pagy, @items = pagy(@items.completed), items: 5)
+    @items = @items.filter_by_status(params[:status]) if params[:status].present?
+    @items = @items.filter_by_priority(params[:priority]) if params[:priority].present?
   end
 
   private

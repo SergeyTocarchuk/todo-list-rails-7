@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   has_many_attached :images
 
   scope :filter_by_status, -> (status) { where is_completed: status }
+  scope :filter_by_priority, -> (priority) { where priority: priority }
 
   def completed?
     !is_completed.blank?

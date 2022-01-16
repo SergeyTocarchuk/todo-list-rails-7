@@ -13,7 +13,7 @@
         </tr>
         <% @items.each do |item| %>  
           <tr>
-            <td style="margin-inline: 10px;">
+            <td>
               <% if item.completed? %>
                 <%= link_to incomplete_admins_list_item_path(@list, item.id) do %>
                   <%= fa_icon "chevron-circle-down", class: "item-icon-completed" %>
@@ -32,7 +32,7 @@
               <% end %>
             </td>
             <td>
-              <div style="margin: 20px;">
+              <div style="margin-inline: 20px;">
                 <% if item.completed? %>
                   <div class="item-completed">
                     <%= link_to item.content, admins_list_item_path(@list, item.id) %>
@@ -58,9 +58,6 @@
       </table>
     </div>
   </div>
-
-  <%== render partial: 'pagy/nav', locals: {pagy: @pagy} %>
-
 </div>
 
 <%= console %>

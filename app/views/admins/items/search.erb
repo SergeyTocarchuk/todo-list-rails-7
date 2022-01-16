@@ -1,14 +1,21 @@
 <div class="container">
   <div class="list-content">
-    <h3>Search List</h3>
+    <h3>Search Items</h3>
     <form action="/admins/lists/<%= params[:list_id] %>/items/search_show">
       <div class="list-edit-form">
         <input type="text" name="query" class="list-input" />
-        <select name="cars" id="cars" form="carform">
+        <label for="status">Filter on Status:</label>
+        <select name="status" id="status">
+          <option value="" selected>All</option>
           <option value="true">Completed</option>
           <option value="false">Incompleted</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
+        </select>
+        <label for="priority">Filter on Priority:</label>
+        <select name="priority" id="priority">
+          <option value="" selected>All</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
         </select>
         <button type="Submit" class="button btn-submit">Search</button>
       </div>
