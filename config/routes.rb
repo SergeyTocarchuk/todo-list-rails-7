@@ -9,14 +9,10 @@ Rails.application.routes.draw do
     resources :lists do
       collection do
         get 'search'
+        get 'search_show'
       end
     end
     resources :users
-  end
-
-  namespace :search do
-    get "list", to: "search_lists#search"
-    get "show-list", to: "search_lists#show"
   end
 
   resources :lists do

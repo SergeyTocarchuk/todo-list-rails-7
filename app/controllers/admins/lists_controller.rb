@@ -55,6 +55,13 @@ class Admins::ListsController < Admins::BaseController
     end
   end
 
+  def search
+  end
+
+  def search_show
+    @pagy, @lists = pagy(List.all.where("name LIKE ?", "%" + params[:query] + "%"), items: 5)
+  end
+
   def filter
     @list = current_user.lists.find_by params[:id]
     @items = @list.items.incompleted
