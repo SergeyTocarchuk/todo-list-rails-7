@@ -1,6 +1,8 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
 
+  <%= link_to 'Back to Lists', admins_lists_path %>
+
   <div class="list-content">
     <div class="list-name">
       <% if @list.avatar.attached? %>
@@ -48,7 +50,7 @@
         </td>
         <td>
           <% if item.images.attached? %>
-            <%= link_to list_item_path(@list, item.id) do %>
+            <%= link_to admins_list_item_path(@list, item.id) do %>
               <%= fa_icon "paperclip", class: "item-icon-completed" %>
             <% end %>
           <% end %>
@@ -84,5 +86,3 @@
     </div>
   </div>
 </div>
-
-<%= console %>

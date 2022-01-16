@@ -1,12 +1,8 @@
-class ListsController < ApplicationController
-  before_action :authenticate_member!
+class Users::ListsController < Admins::BaseController
+  before_action :authenticate_user!
 
   def index
-    @lists = List.all
-  end
-
-  def administration
-    @lists = List.all
+    @lists = current_user.lists
   end
 
   def show
@@ -22,11 +18,11 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = current_user.lists.build(list_params)
+    @list = current_user.lists.create(list_params)
     @list.avatar.attach(params[:avatar])
     respond_to do |format|
       if @list.save
-        format.html { redirect_to lists_path, notice: "List was successfully created." }
+        format.html { redirect_to users_lists_path, notice: "List was successfully created." }
         format.json { render :show, status: :created, location: @list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +36,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.update(list_params)
-        format.html { redirect_to list_path(@list), notice: "List was successfully updated." }
+        format.html { redirect_to users_list_path(@list), notice: "List was successfully updated." }
         format.json { render :show, status: :ok, location: @list }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,18 +50,16 @@ class ListsController < ApplicationController
     @list.destroy
 
     respond_to do |format|
-      format.html { redirect_to lists_path, notice: "List was successfully removed." }
+      format.html { redirect_to users_lists_path, notice: "List was successfully removed." }
       format.json { head :no_content }
     end
   end
 
   def search
-    @pagy, @lists = pagy(current_member.lists.where("name LIKE ?", "%" + params[:query] + "%"), items: 5)
   end
 
-  def filter
-    @list = current_user.lists.find_by params[:id]
-    @items = @list.items.incompleted
+  def search_show
+    @pagy, @lists = pagy(current_user.lists.where("name LIKE ?", "%" + params[:query] + "%"), items: 5)
   end
 
   private

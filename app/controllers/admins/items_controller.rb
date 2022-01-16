@@ -51,8 +51,8 @@ class Admins::ItemsController < Admins::BaseController
 
   # DELETE /items/1 or /items/1.json
   def destroy
-    @list = List.all.find_by params[:list_id]
-    @item = @list.items.find_by params[:id]
+    @list = List.all.find_by id: params[:list_id]
+    @item = @list.items.find_by id: params[:id]
     @item.destroy
 
     respond_to do |format|
@@ -79,7 +79,7 @@ class Admins::ItemsController < Admins::BaseController
   end
 
   def search_show
-    @list = List.all.find_by params[:list_id]
+    @list = List.all.find_by id: params[:list_id]
     @items = Item.all.where("content LIKE ?", "%" + params[:query] + "%")
     @items = @items.filter_by_status(params[:status]) if params[:status].present?
     @items = @items.filter_by_priority(params[:priority]) if params[:priority].present?

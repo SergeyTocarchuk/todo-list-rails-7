@@ -25,11 +25,21 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  resources :lists do
-    resources :items do
-      member do
-        get 'complete'
-        get 'incomplete'
+  namespace :users do
+    resources :lists do
+      resources :items do
+        member do
+          get 'complete'
+          get 'incomplete'
+        end
+        collection do
+          get 'search'
+          get 'search_show'
+        end
+      end
+      collection do
+        get 'search'
+        get 'search_show'
       end
     end
   end
