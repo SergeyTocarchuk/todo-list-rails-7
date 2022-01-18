@@ -13,6 +13,7 @@
 
   <div class="list-edit-form">
     <%= form.text_field :name, class: "list-input", placeholder: "List Title" %>
+    <%= collection_check_boxes(:list, :user_ids, User.all, :id, :email) %>
     <%= form.file_field :avatar, class: "list-input" %>
     <%= form.submit class: "button btn-submit" %>
   </div>

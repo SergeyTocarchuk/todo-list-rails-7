@@ -1,5 +1,5 @@
 class Admins::UsersController < Admins::BaseController
-  before_action ->{ authenticate_member! :admin }
+  before_action :authenticate_admin!
 
   def index
     @pagy, @users = pagy(User.all, items: 5)
@@ -27,8 +27,9 @@ class Admins::UsersController < Admins::BaseController
 
   def destroy
     @user = User.find(params[:id])
+    @lists = @user.lists
     @user.destroy
-
+    
     respond_to do |format|
       format.html { redirect_to admins_users_path, notice: "User was successfully removed." }
       format.json { head :no_content }

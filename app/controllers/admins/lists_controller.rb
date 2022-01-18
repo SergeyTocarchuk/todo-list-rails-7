@@ -13,15 +13,14 @@ class Admins::ListsController < Admins::BaseController
     @list = List.new
   end
 
-  def edit
-    @list = List.find(params[:id])
-  end
-
   def create
-    @list = List.create(list_params)
+    @user = User.find_by id: params[:list][:user_id]
+    @user_list = UserList.new(user_id: @user.id)
+    @list = @user_list.build_list(list_params)
     @list.avatar.attach(params[:avatar])
     respond_to do |format|
       if @list.save
+        @user_list.save
         format.html { redirect_to admins_lists_path, notice: "List was successfully created." }
         format.json { render :show, status: :created, location: @list }
       else
@@ -29,6 +28,10 @@ class Admins::ListsController < Admins::BaseController
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
+    @list = List.find(params[:id])
   end
 
   def update

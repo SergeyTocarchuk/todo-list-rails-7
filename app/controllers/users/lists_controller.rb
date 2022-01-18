@@ -10,18 +10,19 @@ class Users::ListsController < Admins::BaseController
   end
 
   def new
-    @list = List.new
-  end
-
-  def edit
-    @list = List.find(params[:id])
+    @user = current_user
+    @user_list = UserList.new(user_id: @user.id)
+    @list = @user_list.build_list
   end
 
   def create
-    @list = current_user.lists.create(list_params)
+    @user = current_user
+    @user_list = UserList.new(user_id: @user.id)
+    @list = @user_list.build_list(list_params)
     @list.avatar.attach(params[:avatar])
     respond_to do |format|
       if @list.save
+        @user_list.save
         format.html { redirect_to users_lists_path, notice: "List was successfully created." }
         format.json { render :show, status: :created, location: @list }
       else
@@ -29,6 +30,10 @@ class Users::ListsController < Admins::BaseController
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
+    @list = List.find(params[:id])
   end
 
   def update

@@ -1,7 +1,9 @@
 class List < ApplicationRecord
-  belongs_to :user
   has_many :items, dependent: :destroy
   has_one_attached :avatar
+
+  has_many :user_lists, dependent: :destroy
+  has_many :users, through: :user_lists
 
   def date_formatted
     created_at.strftime("%d.%m.%Y")

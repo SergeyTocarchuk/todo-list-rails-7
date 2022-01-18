@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_16_150338) do
+ActiveRecord::Schema.define(version: 2022_01_18_102718) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -66,8 +66,15 @@ ActiveRecord::Schema.define(version: 2022_01_16_150338) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_lists", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
-    t.index ["user_id"], name: "index_lists_on_user_id"
+    t.integer "list_id", null: false
+    t.index ["list_id"], name: "index_user_lists_on_list_id"
+    t.index ["user_id"], name: "index_user_lists_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,5 +93,6 @@ ActiveRecord::Schema.define(version: 2022_01_16_150338) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "items", "lists"
-  add_foreign_key "lists", "users"
+  add_foreign_key "user_lists", "lists"
+  add_foreign_key "user_lists", "users"
 end
