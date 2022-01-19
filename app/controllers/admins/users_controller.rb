@@ -27,9 +27,8 @@ class Admins::UsersController < Admins::BaseController
 
   def destroy
     @user = User.find(params[:id])
-    @lists = @user.lists
+    @user.lists.destroy_all
     @user.destroy
-    
     respond_to do |format|
       format.html { redirect_to admins_users_path, notice: "User was successfully removed." }
       format.json { head :no_content }

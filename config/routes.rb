@@ -41,6 +41,10 @@ Rails.application.routes.draw do
         get 'search'
         get 'search_show'
       end
+      member do
+        get 'find_user_to_share_with'
+        post 'share_list'
+      end
     end
   end
 end

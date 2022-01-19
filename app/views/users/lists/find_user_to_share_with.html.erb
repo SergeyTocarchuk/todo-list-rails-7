@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="list-content">
+    <h4>Choose a user to share a list with</h4>
+    
+    <%= form_with(model: @user_list, url: share_list_users_list_path) do |form| %>
+      <div class="list-edit-form">
+        <%= form.select('user_id', User.all.collect {|u| [u.email, u.id] } ) %>
+        <%= form.submit class: "button btn-submit" %>
+      </div>
+    <% end %>
+      
+</div>
+
+<%= console %>

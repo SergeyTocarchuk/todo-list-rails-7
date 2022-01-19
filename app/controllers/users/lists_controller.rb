@@ -67,6 +67,17 @@ class Users::ListsController < Admins::BaseController
     @pagy, @lists = pagy(current_user.lists.where("name LIKE ?", "%" + params[:query] + "%"), items: 5)
   end
 
+  def find_user_to_share_with
+    @user_list = UserList.new
+  end
+
+  def share_list
+    @user_list = UserList.new(user_id: params[:user_list][:user_id], list_id: params[:id])
+    if @user_list.save
+      redirect_to users_list_path(params[:id])
+    end
+  end
+
   private
 
   def list_params

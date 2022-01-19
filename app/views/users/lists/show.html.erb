@@ -19,6 +19,8 @@
         <%= button_to "Delete", users_list_path(@list), 
                                 method: :delete,
                                 class: "button btn-delete" %>
+        <%= link_to "Share List", find_user_to_share_with_users_list_path(@list),
+                                  class: "button" %>        
       </div>
     </div>
   </div>
