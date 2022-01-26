@@ -73,6 +73,7 @@ group :test do
   gem 'faker'
   gem 'capybara'
   gem 'guard-rspec'
+  gem 'shoulda-matchers', '~> 5.1'
   gem 'launchy'
   gem "selenium-webdriver"
   gem "webdrivers"
