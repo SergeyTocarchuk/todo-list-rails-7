@@ -351,6 +351,10 @@
   margin-bottom: 5px;
 }
 
+.list-select {
+  margin-bottom: 5px;
+}
+
 .item-priority-high {
   color: lightcoral;
 }

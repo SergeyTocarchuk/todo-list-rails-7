@@ -4,7 +4,12 @@
     
     <%= form_with(model: @user_list, url: share_list_users_list_path) do |form| %>
       <div class="list-edit-form">
-        <%= form.select('user_id', User.all.collect {|u| [u.email, u.id] } ) %>
+        <div class="list-select">
+          <%= form.select('user_id', User.all.collect {|u| [u.email, u.id] }) %>
+        </div>
+        <div class="list-select">
+          <%= form.select :level_of_access, ['read', 'write'] %>
+        </div>
         <%= form.submit class: "button btn-submit" %>
       </div>
     <% end %>
