@@ -34,11 +34,11 @@
           <td>
             <% if list.completed? %>
               <div class="list-completed">
-                <%= link_to list.name, users_list_path(list) %>
+                <%= link_to list.name, list_path(list) %>
               </div>
             <% else %>
               <div class="list-incompleted">
-                <%= link_to list.name, users_list_path(list) %>
+                <%= link_to list.name, list_path(list) %>
               </div>
             <% end %>
           </td>
