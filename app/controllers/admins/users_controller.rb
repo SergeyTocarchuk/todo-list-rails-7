@@ -1,6 +1,4 @@
 class Admins::UsersController < Admins::BaseController
-  before_action :authenticate_admin!
-
   def index
     @pagy, @users = pagy(User.all, items: 5)
   end
@@ -40,5 +38,4 @@ class Admins::UsersController < Admins::BaseController
   def user_params
     params[:user].permit(:email, :admin)
   end
-
 end

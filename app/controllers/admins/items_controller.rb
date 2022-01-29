@@ -1,6 +1,4 @@
 class Admins::ItemsController < Admins::BaseController
-  before_action :authenticate_admin!
-
   # GET /items/1 or /items/1.json
   def show
     @item = Item.find(params[:id])

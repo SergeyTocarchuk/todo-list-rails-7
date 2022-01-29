@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'pages#about'
 
   namespace :admins do
-    resources :admins, only: [:show]
+    get 'admin', to: 'admins#show'
     resources :lists do
       collection do
         get 'search'

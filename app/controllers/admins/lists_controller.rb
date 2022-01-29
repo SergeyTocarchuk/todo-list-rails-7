@@ -1,6 +1,4 @@
 class Admins::ListsController < Admins::BaseController
-  before_action :authenticate_admin!
-
   def index
     @lists = List.all
   end
