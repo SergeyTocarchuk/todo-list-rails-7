@@ -1,6 +1,4 @@
 <div class="container">
-  <p style="color: green"><%= notice %></p>
-
   <div class="list-content">
     <table>
       <% @lists.each do |list| %>
@@ -13,7 +11,7 @@
             <% end %>
           </td>
           <td>
-            <div class="list-table-cell"> 
+            <div class="list-table-cell">
               <% if list.completed? %>
                 <%= fa_icon "chevron-circle-down", class: "item-icon-completed" %>
               <% end %>

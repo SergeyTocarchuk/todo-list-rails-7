@@ -1,5 +1,4 @@
 <div class="container">
-  <p style="color: green"><%= notice %></p>
   <%= link_to 'Back to List', admins_list_path(@list) %>
   <h4><%= @list.name %></h4>
   <div class="list-content">
@@ -12,7 +11,7 @@
           <th style="text-align: start;">Priority</th>
           <th></th>
         </tr>
-        <% @items.each do |item| %>  
+        <% @items.each do |item| %>
           <tr>
             <td>
               <% if item.completed? %>
@@ -22,7 +21,7 @@
               <% else %>
                 <%= link_to complete_admins_list_item_path(@list, item.id) do %>
                   <%= fa_icon "circle", class: "item-icon-incompleted" %>
-                <% end %> 
+                <% end %>
               <% end %>
             </td>
             <td>

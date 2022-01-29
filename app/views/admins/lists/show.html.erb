@@ -1,6 +1,4 @@
 <div class="container">
-  <p style="color: green"><%= notice %></p>
-
   <%= link_to 'Back to Lists', admins_lists_path %>
 
   <div class="list-content">
@@ -16,7 +14,7 @@
       <div class="btns-item">
         <%= link_to "Edit", edit_admins_list_path(@list),
                             class: "button" %>
-        <%= button_to "Delete", admins_list_path(@list), 
+        <%= button_to "Delete", admins_list_path(@list),
                                 method: :delete,
                                 class: "button btn-delete" %>
       </div>
@@ -35,7 +33,7 @@
         <% end %>
       </th>
     </tr>
-    <% @list.items.each do |item| %>  
+    <% @list.items.each do |item| %>
       <tr>
         <td>
           <% if item.completed? %>
@@ -45,7 +43,7 @@
           <% else %>
             <%= link_to complete_admins_list_item_path(@list, item.id) do %>
               <%= fa_icon "circle", class: "item-icon-incompleted" %>
-            <% end %> 
+            <% end %>
           <% end %>
         </td>
         <td>

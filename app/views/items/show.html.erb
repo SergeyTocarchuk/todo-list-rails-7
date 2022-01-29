@@ -1,5 +1,4 @@
 <div class="container">
-  <p style="color: green"><%= notice %></p>
 
   <%= link_to 'Back to list', users_list_path(@list) %>
 
@@ -18,7 +17,7 @@
   <div class="btns-item">
     <%= link_to "Edit", edit_users_list_item_path(@item.list_id, @item.id),
                         class: "button" %>
-    <%= button_to "Delete", users_list_item_path(@item.list_id, @item.id), 
+    <%= button_to "Delete", users_list_item_path(@item.list_id, @item.id),
                             method: :delete,
                             class: "button btn-delete" %>
   </div>

@@ -20,6 +20,11 @@
   margin: 0;
 }
 
+.notice-msg {
+  text-align: center;
+  padding: 15px 0;
+}
+
 /* navbar */
 
 .nav {

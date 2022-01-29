@@ -1,6 +1,4 @@
 <div class="container">
-  <p style="color: green"><%= notice %></p>
-
   <%= link_to 'Back to Lists', users_lists_path %>
 
   <div class="list-content">
@@ -16,11 +14,11 @@
       <div class="btns-item">
         <%= link_to "Edit", edit_users_list_path(@list),
                             class: "button" %>
-        <%= button_to "Delete", users_list_path(@list), 
+        <%= button_to "Delete", users_list_path(@list),
                                 method: :delete,
                                 class: "button btn-delete" %>
         <%= link_to "Share List", find_user_to_share_with_users_list_path(@list),
-                                  class: "button" %>        
+                                  class: "button" %>
       </div>
     </div>
   </div>
@@ -37,7 +35,7 @@
         <% end %>
       </th>
     </tr>
-    <% @list.items.each do |item| %>  
+    <% @list.items.each do |item| %>
       <tr>
         <td>
           <% if item.completed? %>
@@ -47,7 +45,7 @@
           <% else %>
             <%= link_to complete_users_list_item_path(@list, item.id) do %>
               <%= fa_icon "circle", class: "item-icon-incompleted" %>
-            <% end %> 
+            <% end %>
           <% end %>
         </td>
         <td>
