@@ -51,6 +51,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'faker'
 end
 
 group :development do
@@ -70,7 +71,6 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'faker'
   gem 'capybara'
   gem 'guard-rspec'
   gem 'shoulda-matchers', '~> 5.1'

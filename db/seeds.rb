@@ -6,3 +6,8 @@ groceries = List.create(name: 'Groceries')
 work = List.create(name: 'Work')
 user.lists << groceries
 user.lists << work
+
+
+1000.times do
+  List.create(name: Faker::Lorem.sentence )
+end
