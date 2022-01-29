@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     @item = @list.items.create(item_params)
     respond_to do |format|
       if @item.save
-        format.html { redirect_to users_list_path(@item.list_id), notice: "Item was successfully created." }
+        format.html { redirect_to list_path(@item.list_id), notice: "Item was successfully created." }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to users_list_path(@list), notice: "Item was successfully updated." }
+        format.html { redirect_to list_path(@list), notice: "Item was successfully updated." }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
     @item.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_list_path(@list), notice: "Item was successfully destroyed." }
+      format.html { redirect_to list_path(@list), notice: "Item was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -66,14 +66,14 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.is_completed = true
     @item.save
-    redirect_to users_list_path(@item.list_id)
+    redirect_to list_path(@item.list_id)
   end
 
   def incomplete
     @item = Item.find(params[:id])
     @item.is_completed = nil
     @item.save
-    redirect_to users_list_path(@item.list_id)
+    redirect_to list_path(@item.list_id)
   end
 
   def search

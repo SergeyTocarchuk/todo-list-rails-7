@@ -23,7 +23,7 @@ class ListsController < ApplicationController
     respond_to do |format|
       if @list.save
         @user_list.save
-        format.html { redirect_to users_lists_path, notice: "List was successfully created." }
+        format.html { redirect_to lists_path, notice: "List was successfully created." }
         format.json { render :show, status: :created, location: @list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.update(list_params)
-        format.html { redirect_to users_list_path(@list), notice: "List was successfully updated." }
+        format.html { redirect_to list_path(@list), notice: "List was successfully updated." }
         format.json { render :show, status: :ok, location: @list }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class ListsController < ApplicationController
     @list.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_lists_path, notice: "List was successfully removed." }
+      format.html { redirect_to lists_path, notice: "List was successfully removed." }
       format.json { head :no_content }
     end
   end
@@ -74,7 +74,7 @@ class ListsController < ApplicationController
   def share_list
     @user_list = UserList.new(user_id: params[:user_list][:user_id], list_id: params[:id])
     if @user_list.save
-      redirect_to users_list_path(params[:id])
+      redirect_to list_path(params[:id])
     end
   end
 

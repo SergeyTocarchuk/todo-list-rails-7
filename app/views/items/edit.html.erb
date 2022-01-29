@@ -2,7 +2,7 @@
   <div class="form-item">
     <h1>Editing item</h1>
 
-    <%= form_with(model: [@list, @item], url: users_list_item_path) do |form| %>
+    <%= form_with(model: [@list, @item], url: list_item_path) do |form| %>
       <div class="item-form">
         <input type="hidden" name="item[list_id]" value="<%= params[:list_id] %>">
         <%= form.text_field :content, class: "item-input" %>

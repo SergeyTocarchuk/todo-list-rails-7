@@ -1,8 +1,8 @@
 <div class="container">
   <div class="list-content">
     <h1>Edit List</h1>
-    
-    <%= form_with(model: @list, url: users_list_path) do |form| %>
+
+    <%= form_with(model: @list, url: list_path) do |form| %>
       <% if @list.errors.any? %>
         <div style="color: red">
           <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
@@ -21,5 +21,5 @@
         <%= form.submit class: "button btn-submit" %>
       </div>
     <% end %>
-      
+
 </div>
