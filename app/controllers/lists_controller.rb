@@ -72,7 +72,8 @@ class ListsController < ApplicationController
   end
 
   def share_list
-    @user_list = UserList.new(user_id: params[:user_list][:user_id], list_id: params[:id])
+    # TODO, restore form to send user_id
+    @user_list = UserList.new(user: User.find_by(email: params[:user_list][:user_email]), list_id: params[:id])
     if @user_list.save
       redirect_to lists_path
     end

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'pages#about'
 
+  get 'user_list_options', to: 'application#user_list_options'
+
   namespace :admin do
     get '/', to: 'dashboard#index'
     resources :lists do

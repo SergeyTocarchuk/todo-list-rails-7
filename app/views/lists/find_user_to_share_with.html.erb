@@ -4,16 +4,20 @@
 
     <%= form_with(model: @user_list, url: share_list_list_path) do |form| %>
       <div class="list-edit-form">
-        <div class="list-select">
-          <%= form.select('user_id', UserList.sharable_user_ids(params[:id]).collect {|u| [u.email, u.id] }) %>
-        </div>
+        <input id='autocomplete' data-id="<%= params[:id] %>" type="text" placeholder="enter username" name="[user_list][user_email]"/>
+        <div id='result'></div>
+
+        <!-- <div class="list-select"> -->
+        <!--   <%# form.select('user_id', UserList.sharable_user_ids(params[:id]).collect {|u| [u.email, u.id] }) %> -->
+        <!-- </div> -->
+        <br>
+
         <div class="list-select">
           <%= form.select :level_of_access, ['read', 'write'] %>
         </div>
         <%= form.submit class: "button btn-submit" %>
       </div>
     <% end %>
-
 </div>
 
 <%= console %>
