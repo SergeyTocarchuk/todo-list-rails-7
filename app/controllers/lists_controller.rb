@@ -74,7 +74,7 @@ class ListsController < ApplicationController
   def share_list
     @user_list = UserList.new(user_id: params[:user_list][:user_id], list_id: params[:id])
     if @user_list.save
-      redirect_to list_path(params[:id])
+      redirect_to lists_path
     end
   end
 
