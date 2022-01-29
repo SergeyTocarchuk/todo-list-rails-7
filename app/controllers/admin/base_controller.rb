@@ -4,6 +4,6 @@ class Admin::BaseController < ApplicationController
   protected
 
   def authenticate_admin!
-    current_user.present? && current_user.admin?
+    redirect_to root_path, notice: 'no no no' unless current_user&.admin?
   end
 end
