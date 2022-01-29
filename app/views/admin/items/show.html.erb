@@ -12,9 +12,9 @@
   </div>
 
   <div class="btns-item">
-    <%= link_to "Edit", edit_admins_list_item_path(@item.list_id, @item.id),
+    <%= link_to "Edit", edit_admin_list_item_path(@item.list_id, @item.id),
                         class: "button" %>
-    <%= button_to "Delete", admins_list_item_path(@item.list_id, @item.id),
+    <%= button_to "Delete", admin_list_item_path(@item.list_id, @item.id),
                             method: :delete,
                             class: "button btn-delete" %>
   </div>

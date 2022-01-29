@@ -1,4 +1,4 @@
-class Admins::UsersController < Admins::BaseController
+class Admin::UsersController < Admin::BaseController
   def index
     @pagy, @users = pagy(User.all, items: 5)
   end
@@ -14,7 +14,7 @@ class Admins::UsersController < Admins::BaseController
     @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to admins_users_path, notice: "User was successfully updated." }
+        format.html { redirect_to admin_users_path, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -28,7 +28,7 @@ class Admins::UsersController < Admins::BaseController
     @user.lists.destroy_all
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to admins_users_path, notice: "User was successfully removed." }
+      format.html { redirect_to admin_users_path, notice: "User was successfully removed." }
       format.json { head :no_content }
     end
   end

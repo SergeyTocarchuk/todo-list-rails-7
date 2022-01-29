@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   root 'pages#about'
 
-  namespace :admins do
-    get 'admin', to: 'dashboard#index'
+  namespace :admin do
+    get '/', to: 'dashboard#index'
     resources :lists do
       collection do
         get 'search'
