@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :admins, controllers: { sessions: 'admins/sessions', registrations: 'admins/registrations' }
-  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
+  devise_for :users
 
   root 'pages#about'
-  
-  namespace :admins do
-    resources :admins, only: [:show]
+
+  get 'user_list_options', to: 'application#user_list_options'
+
+  namespace :admin do
+    get '/', to: 'dashboard#index'
     resources :lists do
       collection do
         get 'search'
@@ -25,26 +26,24 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  namespace :users do
-    resources :lists do
-      resources :items do
-        member do
-          get 'complete'
-          get 'incomplete'
-        end
-        collection do
-          get 'search'
-          get 'search_show'
-        end
+  resources :lists do
+    resources :items do
+      member do
+        get 'complete'
+        get 'incomplete'
       end
       collection do
         get 'search'
         get 'search_show'
       end
-      member do
-        get 'find_user_to_share_with'
-        post 'share_list'
-      end
+    end
+    collection do
+      get 'search'
+      get 'search_show'
+    end
+    member do
+      get 'find_user_to_share_with'
+      post 'share_list'
     end
   end
 end

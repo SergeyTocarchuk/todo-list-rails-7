@@ -20,6 +20,11 @@
   margin: 0;
 }
 
+.notice-msg {
+  text-align: center;
+  padding: 15px 0;
+}
+
 /* navbar */
 
 .nav {
@@ -71,6 +76,12 @@
   margin: 20px;
 }
 
+.welcome-container {
+  margin: 150px auto 0;
+  padding: 50px;
+  max-width: 500px;
+}
+
 /* Item section */
 
 .item-new {
@@ -95,7 +106,6 @@
 }
 
 .button {
-  width: 100px;
   font-size: 15px;
   padding: 8px;
   border-radius: 5px;
@@ -291,7 +301,7 @@
 .list-content {
   display: flex;
   flex-direction: column;
-  max-width: 750px;  
+  max-width: 750px;
   margin: 0 auto;
 }
 
@@ -397,7 +407,7 @@
   text-align: center;
   color: white;
   background-color: darkseagreen;
-  border-radius: 3px;  
+  border-radius: 3px;
 }
 
 .user-button-delete {
@@ -409,7 +419,7 @@
   color: white;
   background-color: lightcoral;
   border: none;
-  border-radius: 3px;  
+  border-radius: 3px;
 }
 
 .users-pagy {
@@ -435,7 +445,7 @@
   color: white;
   background-color: darkseagreen;
   border: none;
-  border-radius: 3px;  
+  border-radius: 3px;
 }
 
 /* Admin section */

@@ -1,0 +1,24 @@
+<div class="container">
+
+  <%= link_to 'Back to list', list_path(@list) %>
+
+  <div class="item-content">
+    <%= render @item %>
+  </div>
+
+  <div class="item-gallery">
+    <% if @item.images.attached? %>
+      <% @item.images.each do |image| %>
+        <%= image_tag image, width: "100px" %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="btns-item">
+    <%= link_to "Edit", edit_list_item_path(@item.list_id, @item.id),
+                        class: "button" %>
+    <%= button_to "Delete", list_item_path(@item.list_id, @item.id),
+                            method: :delete,
+                            class: "button btn-delete" %>
+  </div>
+</div>
