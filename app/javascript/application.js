@@ -23,3 +23,16 @@ const inputHandler = function(e) {
 }
 
 source.addEventListener('input', inputHandler);
+
+const optiontHandler = function(e) {
+  let options = document.querySelectorAll(".option")
+
+  options.forEach(option => {
+    console.log(option.dataset.id, option.textContent)
+    source.value = option.textContent;
+    source.dataset.id = option.dataset.id;
+    result.innerHTML = ''
+  })
+}
+
+result.addEventListener('click', optiontHandler)
