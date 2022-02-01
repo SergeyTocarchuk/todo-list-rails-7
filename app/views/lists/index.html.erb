@@ -7,7 +7,6 @@
     <table>
       <tr>
         <th></th>
-        <th></th>
         <th>Lists</th>
         <th>Items</th>
         <th></th>
@@ -15,13 +14,6 @@
       </tr>
       <% @lists.each do |list| %>
         <tr>
-          <td>
-            <% if list.avatar.attached? %>
-              <%= image_tag list.avatar, width: "20px" %>
-            <% else %>
-              <%= image_tag("ava.jpeg", size: "20x20") %>
-            <% end %>
-          </td>
           <td>
             <div class="list-table-cell">
               <% if list.completed? %>
@@ -47,6 +39,16 @@
             <div class="list-table-cell"> <%= list.date_formatted %> </div>
           </td>
           <td><%= link_to 'Share', find_user_to_share_with_list_path(list) %></td>
+          <td>
+            <%= link_to edit_list_path(list) do %>
+              <%= fa_icon "edit", class: "btn-edit-icon-color" %>
+            <% end %>
+          </td>
+          <td>
+            <%= button_to list_path(list), method: :delete, class: "btn-delete" do %>
+              <%= fa_icon "trash", class: "btn-delete-icon-color" %>
+            <% end %>
+          </td>
         <tr>
       <% end %>
     </table>

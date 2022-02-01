@@ -10,7 +10,7 @@ class List < ApplicationRecord
   end
 
   def completed?
-    if items.completed.count == items.count
+    if items.completed.count > 0 && items.completed.count == items.count
       return true
     end
   end

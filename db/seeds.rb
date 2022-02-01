@@ -13,6 +13,6 @@ user.lists << work
 andrei.lists << List.create(name: 'Andreis Groceries')
 serghei.lists << List.create(name: 'Sergehis Groceries')
 
-# 10.times do
-#   List.create(name: Faker::Lorem.sentence )
-# end
+10.times do
+  groceries.items.create(content: Faker::Lorem.sentence )
+end

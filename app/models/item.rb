@@ -1,6 +1,5 @@
 class Item < ApplicationRecord
   validates :content, presence: true
-  validates :is_completed, presence: true
 
   belongs_to :list  
   scope :completed, -> { where(is_completed: true) }
