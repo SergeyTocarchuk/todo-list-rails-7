@@ -1,68 +1,59 @@
-<div class="container">
-
-
-  <div class="list-container">
-
-    <div class="list-title">
-      <div class="list-top-icons">
-        <div class="list-icon-back">
-          <%= link_to search_list_items_path(@list) do %>
-            <%= fa_icon "bars", class: "search-panel-color" %>
-          <% end %>        
-        </div>
-        <div class="search-panel">
-          <%= link_to search_list_items_path(@list) do %>
-            <%= fa_icon "search", class: "search-panel-color" %>
-          <% end %>
-        </div>
+<div class="list-container">
+  <div class="list-title">
+    <div class="list-top-icons">
+      <div class="list-icon-back">
+        <%= link_to search_list_items_path(@list) do %>
+          <%= fa_icon "bars", class: "search-panel-color" %>
+        <% end %>        
       </div>
-      <h1><%= @list.name %></h1>
-      <div class="card-line">
-        <p>A personal list</p>
-        <p>Todos <%= @list.items.count %></p>
+      <div class="search-panel">
+        <%= link_to search_list_items_path(@list) do %>
+          <%= fa_icon "search", class: "search-panel-color" %>
+        <% end %>
       </div>
     </div>
-    <div class="list-content">
-      <% @list.items.each do |item| %>
-        <div class="list-content-row">
-          <div class="list-content-part-left">
-            <% if item.priority_high? %>
-              <div class="part-priority-high">
-            <% elsif item.priority_low? %>
-              <div class="part-priority-low">
-            <% else %>
-              <div class="part-priority-normal">
-            <% end %>
-            </div>
-            <div class="part-content">
-              <div class="item-conteiner">
-                <%= link_to item.content, list_item_path(@list, item.id) %>
-              </div>
-            </div>
-          </div>
-          <div class="list-content-part-right">
-            <div class="part-completed">
-              <% if item.completed? %>
-                <%= link_to incomplete_list_item_path(@list, item.id) do %>
-                  <div class="item-icon-completed">
-                    <%= fa_icon "chevron-circle-down", class: "item-icon-completed-color" %>
-                  </div>
-                <% end %>
-              <% else %>
-                <%= link_to complete_list_item_path(@list, item.id) do %>
-                  <div class="item-icon-incompleted"></div>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="list-item-button-add">
-      <%= link_to new_list_item_path(@list) do %>
-        <%= fa_icon "plus", class: "list-item-button-add-color" %>
-      <% end %>
+    <h1><%= @list.name %></h1>
+    <div class="card-line">
+      <p>A personal list</p>
+      <p>Todos <%= @list.items.count %></p>
     </div>
   </div>
-
+  <div class="list-content">
+    <% @list.items.each do |item| %>
+      <div class="list-content-row">
+        <div class="list-content-part-left">
+          <% if item.priority_high? %>
+            <div class="part-priority-high"></div>
+          <% elsif item.priority_low? %>
+            <div class="part-priority-low"></div>
+          <% else %>
+            <div class="part-priority-normal"></div>
+          <% end %>
+          <div class="item-conteiner">
+            <%= link_to item.content, list_item_path(@list, item.id) %>
+          </div>
+        </div>
+        <div class="list-content-part-right">
+          <div class="part-completed">
+            <% if item.completed? %>
+              <%= link_to incomplete_list_item_path(@list, item.id) do %>
+                <div class="item-icon-completed">
+                  <%= fa_icon "chevron-circle-down", class: "item-icon-completed-color" %>
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to complete_list_item_path(@list, item.id) do %>
+                <div class="item-icon-incompleted"></div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="list-item-button-add">
+    <%= link_to new_list_item_path(@list) do %>
+      <%= fa_icon "plus", class: "list-item-button-add-color" %>
+    <% end %>
+  </div>
 </div>
