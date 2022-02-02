@@ -1,44 +1,66 @@
-<div class="container">
-  <div class="list-content">
-    <table>
-      <% @lists.each do |list| %>
-        <tr>
-          <td>
-            <% if list.avatar.attached? %>
-              <%= image_tag list.avatar, width: "20px" %>
-            <% else %>
-              <%= image_tag("ava", size: "20x20") %>
-            <% end %>
-          </td>
-          <td>
-            <div class="list-table-cell">
-              <% if list.completed? %>
-                <%= fa_icon "chevron-circle-down", class: "item-icon-completed" %>
-              <% end %>
-            </div>
-          </td>
-          <td>
-            <% if list.completed? %>
-              <div class="list-completed">
-                <%= link_to list.name, list_path(list) %>
-              </div>
-            <% else %>
-              <div class="list-incompleted">
-                <%= link_to list.name, list_path(list) %>
-              </div>
-            <% end %>
-          </td>
-          <td>
-            <div class="list-table-cell"> <%= list.items.completed.count %> / <%= list.items.count %> </div>
-          </td>
-          <td>
-            <div class="list-table-cell"> <%= list.date_formatted %> </div>
-          </td>
-        <tr>
-      <% end %>
-    </table>
+<div class="list-container">
+
+  <div class="list-index-title">
+    <h2>MY TODO LISTS</h2>
+
+    <div class="search-list-block">
+      <%= render "search" %>
+    </div>
+
+    <div class="index-title-row">
+      <div class="index-title-part-left">
+        <div class="title-date">
+          <p><%= current_user.find_date %></p>
+        </div>
+        <div class="title-month">
+          <p><%= current_user.find_month %></p>
+          <p><%= current_user.find_year %></p>        
+        </div>
+      </div>
+      <div class="index-title-part-right">
+        <p><%= current_user.find_day_of_week %></p>
+      </div>
+    </div>
   </div>
 
-  <%== render partial: 'pagy/nav', locals: {pagy: @pagy} %>
+  <div class="list-content">
+    <% @lists.each do |list| %>
+      <div class="list-index-content-row">
+        <div class="list-content-part-left">
+          <div class="list-index-content-left-line"></div>
+          <div class="list-index-item-conteiner">
+            <%= link_to list.name, list_path(list) %>
+            <p><%= list.items.first.content if list.items.present? %></p>
+          </div>
+        </div>
+        <div class="list-content-part-right">
+          <div class="list-index-content-right-block">
+            <div class="list-index-content-right-block-buttons">
+              <%= link_to find_user_to_share_with_list_path(list) do %>
+                <%= fa_icon "share" %>
+              <% end %>
+            
+              <%= link_to edit_list_path(list) do %>
+                <%= fa_icon "edit" %>
+              <% end %>
+            
+            
+              <%= button_to list_path(list), method: :delete, class: "btn-delete" do %>
+                <%= fa_icon "trash", class: "btn-delete-icon-color" %>
+              <% end %>
+            </div>
+            <p>Todos <%= list.items.count %></p>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="list-item-button-add">
+    <%= link_to new_list_path(@list) do %>
+      <%= fa_icon "plus", class: "list-item-button-add-color" %>
+    <% end %>
+  </div>
 
 </div>

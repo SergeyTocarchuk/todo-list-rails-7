@@ -1,9 +1,12 @@
-<%# <%= link_to search_lists_path, class: "list-search-button" do %>
-<%#   Search List <%= fa_icon "search", class: "list-search-icon" %>
-<%# <% end %>
 <div class="list-container">
 
   <div class="list-index-title">
+    <h2>MY TODO LISTS</h2>
+
+    <div class="search-list-block">
+      <%= render "search" %>
+    </div>
+
     <div class="index-title-row">
       <div class="index-title-part-left">
         <div class="title-date">
