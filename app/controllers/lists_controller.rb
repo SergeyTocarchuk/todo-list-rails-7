@@ -19,7 +19,6 @@ class ListsController < ApplicationController
     @user = current_user
     @user_list = UserList.new(user_id: @user.id)
     @list = @user_list.build_list(list_params)
-    @list.avatar.attach(params[:avatar])
     respond_to do |format|
       if @list.save
         @user_list.save
@@ -88,7 +87,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:name, :avatar)
+    params.require(:list).permit(:name)
   end
 
 end

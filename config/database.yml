@@ -3,7 +3,7 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem "sqlite3"
-#
+
 default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -23,3 +23,5 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+
+postgres://jafqtstdmiotjw:ea8f57812d83ac1088e028c31c1f32b4a60af787be12e55db123f4fbb3922078@ec2-34-230-198-12.compute-1.amazonaws.com:5432/ddrt8oepcpkmpk
