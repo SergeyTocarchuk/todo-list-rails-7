@@ -282,6 +282,11 @@ input[type="password"]::placeholder {
   color: white;
 }
 
+.field > em {
+  font-size: 16px;
+  color: white;
+}
+
 .form-submit-btn {
   border: none;
   height: 25px;
