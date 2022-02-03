@@ -1,15 +1,28 @@
-<div class="container">
-  <div class="form-item">
-    <h1>Editing item</h1>
+<div class="form-container">
 
-    <%= form_with(model: [@list, @item], url: list_item_path) do |form| %>
-      <div class="item-form">
-        <input type="hidden" name="item[list_id]" value="<%= params[:list_id] %>">
-        <%= form.text_field :content, class: "item-input" %>
-        <%= form.select( :priority, ["low", "medium", "high"], { selected: "medium" }, { class: "item-input" } ) %>
-        <%= form.file_field :images, multiple: true, class: "item-input" %>
-        <%= form.submit class: "button btn-submit" %>
-      </div>
-    <% end %>
+  <div class="list-index-title">
+    <h2>Edit Todo</h2>
   </div>
+
+  <%= form_with(model: [@list, @item], url: list_item_path) do |form| %>
+    <div class="form-list-block">
+      <% if @item.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(@item.errors.count, "error") %> prohibited this list from being saved:</h2>
+          <ul>
+            <% @item.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= form.text_field :content, placeholder: "Enter Todo" %>
+      <div class="custom-select">
+        <%= form.select( :priority, ["low", "medium", "high"], { selected: "medium" }) %>
+        <span class="focus"></span>
+      </div>
+      <%= form.file_field :images, multiple: true, class: "custom-file-input" %>
+      <%= form.submit class: "submit-btn" %>
+    </div>
+  <% end %>
 </div>

@@ -2,8 +2,8 @@
   <div class="list-title">
     <div class="list-top-icons">
       <div class="list-icon-back">
-        <%= link_to search_list_items_path(@list) do %>
-          <%= fa_icon "bars", class: "search-panel-color" %>
+        <%= link_to lists_path do %>
+          <%= fa_icon "undo", class: "search-panel-color" %>
         <% end %>        
       </div>
       <div class="search-panel">
@@ -12,7 +12,7 @@
         <% end %>
       </div>
     </div>
-    <h1><%= @list.name %></h1>
+    <h1>List: <%= @list.name %></h1>
     <div class="card-line">
       <p>A personal list</p>
       <p>Todos <%= @list.items.count %></p>
@@ -34,6 +34,16 @@
           </div>
         </div>
         <div class="list-content-part-right">
+          <div class="list-show-item-content-block-buttons">
+            <%= link_to edit_list_item_path(item.list_id, item.id) do %>
+              <%= fa_icon "edit" %>
+            <% end %>
+          
+            <%= button_to list_item_path(item.list_id, item.id), method: :delete, class: "list-show-btn-delete", data: { confirm: "Are you sure?" }  do %>
+              <%= fa_icon "trash", class: "btn-delete-icon-color" %>
+            <% end %>
+          </div>
+
           <div class="part-completed">
             <% if item.completed? %>
               <%= link_to incomplete_list_item_path(@list, item.id) do %>

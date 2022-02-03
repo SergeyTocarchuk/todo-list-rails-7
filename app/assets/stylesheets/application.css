@@ -126,15 +126,6 @@
   cursor: pointer;
 }
 
-.btn-submit {
-  background: darkseagreen;
-  color: white;
-}
-
-.btn-submit:hover {
-  color: lightgrey;
-}
-
 /* Show Item section */
 
 .btns-item {
@@ -422,7 +413,7 @@
   background-color: white;
   font-size: 20px;
   border: none;
-;}
+}
 
 .btn-delete:hover {
   cursor: pointer;
@@ -482,7 +473,7 @@
   padding: 20px;
 }
 
-.form-list-block > input[type="text"] {
+input[type="text"] {
   border: 1px solid #819edb9a;
   border-radius: 10px;
   height: 25px;
@@ -490,16 +481,23 @@
   font-size: 16px;
   color: black;
   padding-left: 10px;
+  margin-bottom: 15px;
 }
 
-.form-list-block > input[type="text"]:hover {
+input[type="text"]:hover {
   border-color: black;
 }
 
-.form-list-block > input[type="text"]::placeholder {
+input[type="text"]::placeholder {
   color: rgba(136, 136, 136, 0.719);
   font-size: 16px;
   padding: 10px 0;
+}
+
+label {
+  font-size: 16px;
+  color: rgba(136, 136, 136, 0.719);
+  margin-bottom: 10px;
 }
 
 .custom-file-input::-webkit-file-upload-button {
@@ -538,11 +536,25 @@
   background-color: transparent;
   font-size: 16px;
   padding: 5px 10px;
+  margin: 10px 0;
 }
 
 .submit-btn:hover {
   cursor: pointer;
   border-color: black;
+}
+
+.btn-submit {
+  color: white;
+  background-color: transparent;
+  font-size: 18px;
+  border: none;
+  padding: 10px;
+}
+
+.btn-submit:hover {
+  cursor: pointer;
+  border: 1px solid black;
 }
 
 select {
@@ -583,7 +595,7 @@ select:focus + .focus {
   line-height: 1.1;
   background-color: #fff;
   background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
-  margin: 15px 0;
+  margin-bottom: 10px;
   display: grid;
   grid-template-areas: "select";
   align-items: center;
@@ -709,6 +721,26 @@ select,
   background-color: rgba(255, 206, 47, 0.61);
   width: 10px;
   margin: 5px 10px 5px 0;
+}
+
+.list-show-item-content-block-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.list-show-item-content-block-buttons > a {
+  text-decoration: none;
+  font-size: 30px;
+  padding-right: 10px;
+  color: rgba(0, 128, 128, 0.507);
+  padding: 10px 10px 7px 0;
+}
+
+.list-show-btn-delete {
+  background-color: white;
+  font-size: 31px;
+  border: none;
+  padding: 10px 0 10px 10px;
 }
 
 .part-completed {

@@ -1,24 +1,67 @@
-<div class="container">
-
-  <%= link_to 'Back to list', list_path(@list) %>
-
-  <div class="item-content">
-    <%= render @item %>
+<div class="list-container">
+  <div class="list-title">
+    <div class="list-top-icons">
+      <div class="list-icon-back">
+        <%= link_to list_path(@list) do %>
+          <%= fa_icon "undo", class: "search-panel-color" %>
+        <% end %>        
+      </div>
+    </div>
+    <h1>Todo: <%= @item.content %></h1>
+    <div class="card-line">
+      <p>to list: <%= @list.name %></p>
+    </div>
   </div>
+  <div class="list-content">
+      <div class="list-content-row">
+        <div class="list-content-part-left">
+          <% if @item.priority_high? %>
+            <div class="part-priority-high"></div>
+          <% elsif @item.priority_low? %>
+            <div class="part-priority-low"></div>
+          <% else %>
+            <div class="part-priority-normal"></div>
+          <% end %>
+          <div class="item-conteiner">
+          
+            <div class="item-gallery">
+              <% if @item.images.attached? %>
+                <% @item.images.each do |image| %>
+                  <%= image_tag image, width: "100px" %>
+                <% end %>
+              <% else %>
+                <p>You could add some photos to Todo via Edit option in right corner of block</p>
+              <% end %>
+            </div>            
 
-  <div class="item-gallery">
-    <% if @item.images.attached? %>
-      <% @item.images.each do |image| %>
-        <%= image_tag image, width: "100px" %>
-      <% end %>
-    <% end %>
-  </div>
+          </div>
+        </div>
+        <div class="list-content-part-right">
+          <div class="list-show-item-content-block-buttons">
+            <%= link_to edit_list_item_path(@item.list_id, @item.id) do %>
+              <%= fa_icon "edit" %>
+            <% end %>
+          
+            <%= button_to list_item_path(@item.list_id, @item.id), method: :delete, class: "list-show-btn-delete", data: { confirm: "Are you sure?" }  do %>
+              <%= fa_icon "trash", class: "btn-delete-icon-color" %>
+            <% end %>
+          </div>
 
-  <div class="btns-item">
-    <%= link_to "Edit", edit_list_item_path(@item.list_id, @item.id),
-                        class: "button" %>
-    <%= button_to "Delete", list_item_path(@item.list_id, @item.id),
-                            method: :delete,
-                            class: "button btn-delete" %>
+          <div class="part-completed">
+            <% if @item.completed? %>
+              <%= link_to incomplete_list_item_path(@list, @item.id) do %>
+                <div class="item-icon-completed">
+                  <%= fa_icon "chevron-circle-down", class: "item-icon-completed-color" %>
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to complete_list_item_path(@list, @item.id) do %>
+                <div class="item-icon-incompleted"></div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
   </div>
 </div>

@@ -1,61 +1,63 @@
-<div class="container">
-  <%= link_to 'Back to List', list_path(@list) %>
-  <h4><%= @list.name %></h4>
+<div class="list-container">
+  <div class="list-title">
+    <div class="list-top-icons">
+      <div class="list-icon-back">
+        <%= link_to list_path(@list) do %>
+          <%= fa_icon "undo", class: "search-panel-color" %>
+        <% end %>        
+      </div>
+    </div>
+    <h1>List: <%= @list.name %></h1>
+    <div class="card-line">
+      <p>Founded Todos according to your query</p>
+      <p>Todos <%= @items.count %></p>
+    </div>
+  </div>
   <div class="list-content">
-    <div class="list-name">
-      <table style="margin: 10px;">
-        <tr>
-          <th></th>
-          <th></th>
-          <th style="text-align: start;">Items</th>
-          <th style="text-align: start;">Priority</th>
-          <th></th>
-        </tr>
-        <% @items.each do |item| %>
-          <tr>
-            <td>
+    <% if @items.present? %>
+      <% @items.each do |item| %>
+        <div class="list-content-row">
+          <div class="list-content-part-left">
+            <% if item.priority_high? %>
+              <div class="part-priority-high"></div>
+            <% elsif item.priority_low? %>
+              <div class="part-priority-low"></div>
+            <% else %>
+              <div class="part-priority-normal"></div>
+            <% end %>
+            <div class="item-conteiner">
+              <%= link_to item.content, list_item_path(@list, item.id) %>
+            </div>
+          </div>
+          <div class="list-content-part-right">
+            <div class="list-show-item-content-block-buttons">
+              <%= link_to edit_list_item_path(item.list_id, item.id) do %>
+                <%= fa_icon "edit" %>
+              <% end %>
+            
+              <%= button_to list_item_path(item.list_id, item.id), method: :delete, class: "list-show-btn-delete", data: { confirm: "Are you sure?" }  do %>
+                <%= fa_icon "trash", class: "btn-delete-icon-color" %>
+              <% end %>
+            </div>
+
+            <div class="part-completed">
               <% if item.completed? %>
                 <%= link_to incomplete_list_item_path(@list, item.id) do %>
-                  <%= fa_icon "chevron-circle-down", class: "item-icon-completed" %>
+                  <div class="item-icon-completed">
+                    <%= fa_icon "chevron-circle-down", class: "item-icon-completed-color" %>
+                  </div>
                 <% end %>
               <% else %>
                 <%= link_to complete_list_item_path(@list, item.id) do %>
-                  <%= fa_icon "circle", class: "item-icon-incompleted" %>
+                  <div class="item-icon-incompleted"></div>
                 <% end %>
               <% end %>
-            </td>
-            <td>
-              <% if item.images.attached? %>
-                <%= link_to list_item_path(@list, item.id) do %>
-                  <%= fa_icon "paperclip", class: "item-icon-completed" %>
-                <% end %>
-              <% end %>
-            </td>
-            <td>
-              <div style="margin-inline: 20px;">
-                <% if item.completed? %>
-                  <div class="item-completed">
-                    <%= link_to item.content, list_item_path(@list, item.id) %>
-                  </div>
-                <% else %>
-                  <div class="item-incompleted">
-                    <%= link_to item.content, list_item_path(@list, item.id) %>
-                  </div>
-                <% end %>
-              </div>
-            </td>
-            <td>
-              <% if item.priority_high? %>
-                <%= fa_icon "square", class: "item-priority-high" %>
-              <% elsif item.priority_low? %>
-                <%= fa_icon "square", class: "item-priority-low" %>
-              <% else %>
-                <%= fa_icon "square", class: "item-priority-middle" %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+        <p>No results match your query</p>
+    <% end %>
   </div>
 </div>

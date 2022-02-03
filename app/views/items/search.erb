@@ -1,24 +1,32 @@
-<div class="container">
-  <div class="list-content">
-    <h3>Search Items</h3>
-    <form action="/users/lists/<%= params[:list_id] %>/items/search_show">
-      <div class="list-edit-form">
-        <input type="text" name="query" class="list-input" />
-        <label for="status">Filter on Status:</label>
+<div class="form-container">
+
+  <div class="list-index-title">
+    <h2>Look for Todo</h2>
+  </div>
+
+  <form action="/lists/<%= params[:list_id] %>/items/search_show">
+    <div class="list-edit-form">
+      <input type="text" name="query" placeholder="Enter name of looking Todo" />
+      <label for="status">Filter on Status:</label>
+      <div class="custom-select">
         <select name="status" id="status">
           <option value="" selected>All</option>
           <option value="true">Completed</option>
           <option value="false">Incompleted</option>
         </select>
-        <label for="priority">Filter on Priority:</label>
+        <span class="focus"></span>
+      </div>
+      <label for="priority">Filter on Priority:</label>
+      <div class="custom-select">
         <select name="priority" id="priority">
           <option value="" selected>All</option>
           <option value="low">Low</option>
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
-        <button type="Submit" class="button btn-submit">Search</button>
+        <span class="focus"></span>
       </div>
-    </form>
-  </div>
+      <button type="Submit" class="submit-btn">Search Todos</button>
+    </div>
+  </form>
 </div>
