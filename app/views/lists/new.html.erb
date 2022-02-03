@@ -4,8 +4,7 @@
     <h2>New list</h2>
   </div>
 
-    <%= form_with(model: @list, url: lists_path) do |form| %>
-
+  <%= form_with(model: @list, url: lists_path) do |form| %>
     <div class="form-list-block">
         <% if @list.errors.any? %>
           <div style="color: red">
@@ -21,6 +20,5 @@
         <%= form.file_field :avatar, class: "custom-file-input" %>
         <%= form.submit class: "submit-btn" %>
     </div>
-    <% end %>
-  <%# </div> %>
+  <% end %>
 </div>

@@ -45,7 +45,7 @@
               <% end %>
             
             
-              <%= button_to list_path(list), method: :delete, class: "btn-delete" do %>
+              <%= button_to list_path(list), method: :delete, class: "btn-delete", data: { confirm: "Are you sure?" }  do %>
                 <%= fa_icon "trash", class: "btn-delete-icon-color" %>
               <% end %>
             </div>

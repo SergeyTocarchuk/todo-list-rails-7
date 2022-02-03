@@ -20,6 +20,12 @@
   margin: 0;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .notice-msg {
   text-align: center;
   padding: 15px 0;
@@ -527,6 +533,7 @@
 .submit-btn {
   border: 1px solid #819edb9a;
   border-radius: 10px;
+  height: 25px;
   color: rgba(136, 136, 136, 0.719);
   background-color: transparent;
   font-size: 16px;
@@ -536,6 +543,64 @@
 .submit-btn:hover {
   cursor: pointer;
   border-color: black;
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  color: rgba(136, 136, 136, 0.719);
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+  width: 100%;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select:focus + .focus {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 1px solid black;
+  border-radius: inherit;
+}
+
+.custom-select {
+  position: relative;
+  height: 25px;
+  min-width: 250px;
+  border: 1px solid #819edb9a;
+  border-radius: 10px;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  margin: 15px 0;
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+}
+
+.custom-select::after {
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: rgba(136, 136, 136, 0.719);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  justify-self: end;
+}
+
+select,
+.custom-select:after {
+  grid-area: select;
 }
 
 /* List Show view */
