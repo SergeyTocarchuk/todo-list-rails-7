@@ -17,8 +17,13 @@ class List < ApplicationRecord
     end
   end
 
-  def self.daily_list
-    where(type_of_list: 'Daily')
+  def self.current_user_lists(user_id)
+    ids = UserList.where(user_id: user_id).pluck(:list_id)
+    List.where(id: ids)
+  end
+
+  def self.daily_list(user_id)
+    current_user_lists(user_id).where(type_of_list: 'Daily')
   end
 
   def daily_list?

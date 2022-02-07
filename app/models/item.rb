@@ -30,7 +30,7 @@ class Item < ApplicationRecord
     created_at.strftime("%d.%m.%Y")
   end
 
-  def self.daily_list
-    joins(:list).merge(List.daily_list)
+  def self.daily_list(user_id)
+    joins(:list).merge(List.daily_list(user_id))
   end
 end

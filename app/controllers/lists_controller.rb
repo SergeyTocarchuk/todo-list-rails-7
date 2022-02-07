@@ -67,7 +67,7 @@ class ListsController < ApplicationController
   end
 
   def show_daily_items
-    @pagy, @items = pagy(Item.daily_list, items: 5)
+    @pagy, @items = pagy(Item.daily_list(current_user.id), items: 5)
   end
 
   def find_user_to_share_with
