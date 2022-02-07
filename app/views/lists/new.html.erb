@@ -17,6 +17,10 @@
         </div>
       <% end %>
       <%= form.text_field :name, placeholder: "List Title" %>
+      <div class="custom-select">
+        <%= form.select :type_of_list, ['Project', 'Daily'] %>
+        <span class="focus"></span>
+      </div>
       <%= form.submit class: "submit-btn" %>
     </div>
   <% end %>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'pages#about'
 
   get 'user_list_options', to: 'lists#user_list_options'
+  get 'user_daily_items', to: 'lists#show_daily_items'
 
   namespace :admin do
     get '/', to: 'dashboard#index'

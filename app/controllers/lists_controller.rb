@@ -66,6 +66,10 @@ class ListsController < ApplicationController
     @pagy, @lists = pagy(current_user.lists.where("name LIKE ?", "%" + params[:query] + "%"), items: 5)
   end
 
+  def show_daily_items
+    @pagy, @items = pagy(Item.daily_list, items: 5)
+  end
+
   def find_user_to_share_with
     @user_list = UserList.new
   end
@@ -87,7 +91,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :type_of_list)
   end
 
 end

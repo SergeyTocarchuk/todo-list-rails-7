@@ -1,4 +1,6 @@
 class List < ApplicationRecord
+  validates :type_of_list, presence: true
+
   has_many :items, dependent: :destroy
   has_one_attached :avatar
 
@@ -15,4 +17,7 @@ class List < ApplicationRecord
     end
   end
 
+  def self.daily_list
+    where(type_of_list: 'daily')
+  end
 end

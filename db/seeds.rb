@@ -4,14 +4,15 @@ serghei = User.create(email: 'serghei@gmail.com', password: 'password', password
 admin = User.create(email: 'admin@gmail.com', password: 'password', password_confirmation: 'password', admin: true)
 
 
-groceries = List.create(name: 'Groceries')
-work = List.create(name: 'Work')
+groceries = List.create(name: 'Groceries', type_of_list: "project" )
+work = List.create(name: 'Work', type_of_list: "project")
+todo = List.create(name: 'To do today', type_of_list: "daily")
 user.lists << groceries
 user.lists << work
+user.lists << todo
 
-
-andrei.lists << List.create(name: 'Andreis Groceries')
-serghei.lists << List.create(name: 'Sergehis Groceries')
+andrei.lists << List.create(name: 'Andreis Groceries', type_of_list: "project")
+serghei.lists << List.create(name: 'Sergehis Groceries', type_of_list: "project")
 
 10.times do
   groceries.items.create(content: Faker::Lorem.sentence )

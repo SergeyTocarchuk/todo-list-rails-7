@@ -17,6 +17,7 @@
           </div>
         <% end %>
         <%= form.text_field :name, placeholder: "List Title" %>
+        <%= form.select :type_of_list, ['Project', 'Daily'] %>
         <%= form.submit class: "submit-btn" %>
     </div>
   <% end %>

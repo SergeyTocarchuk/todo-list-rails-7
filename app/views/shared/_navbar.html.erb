@@ -3,6 +3,7 @@
     <% if user_signed_in? %>
       <%= link_to 'Todo List', lists_path %>
       <%= link_to 'New List', new_list_path %>
+      <%= link_to 'Daily TODOs', user_daily_items_path %>
     <% else %>
       <%= link_to 'Todo List', root_path %>
     <% end %>

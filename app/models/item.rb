@@ -1,12 +1,14 @@
 class Item < ApplicationRecord
   validates :content, presence: true
 
-  belongs_to :list  
+  belongs_to :list
+
   scope :completed, -> { where(is_completed: true) }
   scope :incompleted, -> { where(is_completed: [nil, false]) }
   scope :low, -> { where(priority: 'low') }
   scope :middle, -> { where(priority: 'middle') }
   scope :high, -> { where(priority: 'high' ) }
+
   has_many_attached :images
 
   scope :filter_by_status, -> (status) { where is_completed: status }
@@ -28,4 +30,7 @@ class Item < ApplicationRecord
     created_at.strftime("%d.%m.%Y")
   end
 
+  def self.daily_list
+    joins(:list).merge(List.daily_list)
+  end
 end
