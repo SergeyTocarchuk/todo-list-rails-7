@@ -375,6 +375,12 @@ input[type="password"]::placeholder {
   margin: 0 20px 0 0;
 }
 
+.list-index-content-left-line-daily {
+  background-color: rgba(255, 200, 47, 0.753);
+  width: 10px;
+  margin: 0 20px 0 0;
+}
+
 .list-index-item-conteiner {
   max-width: 750px;
   min-width: 150px;

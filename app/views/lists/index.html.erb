@@ -27,7 +27,11 @@
     <% @lists.each do |list| %>
       <div class="list-index-content-row">
         <div class="list-content-part-left">
-          <div class="list-index-content-left-line"></div>
+          <% if list.daily_list? %>
+            <div class="list-index-content-left-line-daily"></div>
+          <% else %>
+            <div class="list-index-content-left-line"></div>
+          <% end %>
           <div class="list-index-item-conteiner">
             <%= link_to list.name, list_path(list) %>
             <p><%= list.items.first.content if list.items.present? %></p>

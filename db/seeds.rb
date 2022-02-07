@@ -11,8 +11,8 @@ user.lists << groceries
 user.lists << work
 user.lists << todo
 
-andrei.lists << List.create(name: 'Andreis Groceries', type_of_list: "project")
-serghei.lists << List.create(name: 'Sergehis Groceries', type_of_list: "project")
+andrei.lists << List.create(name: "Andrei's Groceries", type_of_list: "project")
+serghei.lists << List.create(name: "Serghei's Groceries", type_of_list: "project")
 
 10.times do
   groceries.items.create(content: Faker::Lorem.sentence )

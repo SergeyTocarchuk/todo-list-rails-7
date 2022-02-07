@@ -18,6 +18,10 @@ class List < ApplicationRecord
   end
 
   def self.daily_list
-    where(type_of_list: 'daily')
+    where(type_of_list: 'Daily')
+  end
+
+  def daily_list?
+    type_of_list.include? "Daily"
   end
 end

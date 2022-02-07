@@ -24,7 +24,7 @@
             <div class="part-priority-normal"></div>
           <% end %>
           <div class="item-conteiner">
-            <%= link_to item.content, list_item_path(@list, item.id) %>
+            <%= link_to item.content, list_item_path(item.list_id, item.id) %>
           </div>
         </div>
         <div class="list-content-part-right">
@@ -40,13 +40,13 @@
 
           <div class="part-completed">
             <% if item.completed? %>
-              <%= link_to incomplete_list_item_path(@list, item.id) do %>
+              <%= link_to incomplete_list_item_path(item.list_id, item.id) do %>
                 <div class="item-icon-completed">
                   <%= fa_icon "chevron-circle-down", class: "item-icon-completed-color" %>
                 </div>
               <% end %>
             <% else %>
-              <%= link_to complete_list_item_path(@list, item.id) do %>
+              <%= link_to complete_list_item_path(item.list_id, item.id) do %>
                 <div class="item-icon-incompleted"></div>
               <% end %>
             <% end %>
