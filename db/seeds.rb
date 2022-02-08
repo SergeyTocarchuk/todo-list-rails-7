@@ -14,6 +14,6 @@ user.lists << todo
 andrei.lists << List.create(name: "Andrei's Groceries", type_of_list: "project")
 serghei.lists << List.create(name: "Serghei's Groceries", type_of_list: "project")
 
-10.times do
-  groceries.items.create(content: Faker::Lorem.sentence )
-end
+# 10.times do
+#   groceries.items.create(content: Faker::Lorem.sentence )
+# end
